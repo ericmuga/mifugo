@@ -1,12 +1,48 @@
 import { createApp, h } from 'vue'
-import { createInertiaApp } from '@inertiajs/inertia-vue3'
+import { createInertiaApp, Link } from '@inertiajs/inertia-vue3'
+import { InertiaProgress } from '@inertiajs/progress'
+// import dayjs from 'dayjs'
+ import PrimeVue from 'primevue/config'
+ import InputText from 'primevue/inputtext'
+ import Toast from 'primevue/toast'
+ import Button from 'primevue/button'
+ import 'primevue/resources/themes/saga-blue/theme.css'       //theme
+ import 'primevue/resources/primevue.min.css'                 //core css
+ import 'primeicons/primeicons.css'
+ import SelectButton from 'primevue/selectbutton';                        //icons
+ import Dropdown from 'primevue/dropdown';
+ import Checkbox from 'primevue/checkbox';
+//  import Breadcrumb from 'primevue/breadcrumb';\
+import Breadcrumbs from '@/components/Breadcrumbs.vue'
+import FileUpload from 'primevue/fileupload';
+
+
+import route from "ziggy";
+import ToastService from 'primevue/toastservice';
 
 createInertiaApp({
-  resolve: name => require(`./Pages/${name}`),
-  setup({ el, App, props, plugin }) {
-    createApp({ render: () => h(App, props) })
-      .use(plugin)
-      .mount(el)
-  },
-})
-.InertiaProgress.init()
+    title: (title) => `${title} - ${appName}`,
+    resolve: (name) => require(`./Pages/${name}.vue`),
+    setup({ el, app, props, plugin }) {
+        const VueApp = createApp({ render: () => h(app, props) });
+
+        // VueApp.config.globalProperties.$date = dayjs;
+         VueApp.config.globalProperties.$routes = route;
+
+        VueApp.use(plugin)
+             .component("Link",Link)
+            .use(PrimeVue)
+            .use(ToastService)
+            .component('InputText',InputText)
+            .component('Button',Button)
+            .component('Dropdown',Dropdown)
+            // .component('Breadcrumb',Breadcrumb)
+            .component('Checkbox',Checkbox)
+            .component('Toast',Toast)
+            .component('Breadcrumbs',Breadcrumbs)
+            .component('FileUpload',FileUpload)
+            .mixin({ methods: { route } })
+            .mount(el);
+    },
+});
+InertiaProgress.init()

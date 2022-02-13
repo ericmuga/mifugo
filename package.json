@@ -22,6 +22,8 @@
         "@inertiajs/progress": "^0.2.7",
         "@vue/compiler-sfc": "^3.2.31",
         "file-loader": "^6.2.0",
+        "primeicons": "^5.0.0",
+        "primevue": "^3.11.1",
         "url-loader": "^4.1.1",
         "vue": "^3.2.29"
     }
