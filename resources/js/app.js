@@ -1,5 +1,5 @@
 import { createApp, h } from 'vue'
-import { createInertiaApp, Link } from '@inertiajs/inertia-vue3'
+import { createInertiaApp, Link, Head } from '@inertiajs/inertia-vue3'
 import { InertiaProgress } from '@inertiajs/progress'
 // import dayjs from 'dayjs'
  import PrimeVue from 'primevue/config'
@@ -21,16 +21,18 @@ import route from "ziggy";
 import ToastService from 'primevue/toastservice';
 
 createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
+
+    title: (title) => `${title}`,
     resolve: (name) => require(`./Pages/${name}.vue`),
     setup({ el, app, props, plugin }) {
         const VueApp = createApp({ render: () => h(app, props) });
 
         // VueApp.config.globalProperties.$date = dayjs;
-         VueApp.config.globalProperties.$routes = route;
+         VueApp.config.globalProperties.$route = route;
 
         VueApp.use(plugin)
              .component("Link",Link)
+             .component("Head",Head)
             .use(PrimeVue)
             .use(ToastService)
             .component('InputText',InputText)

@@ -1,7 +1,7 @@
 <template>
       <div class="flex flex-col w-full p-4 mb-4 bg-slate-200">
         <div>
-            <ul>
+            <ul class="list-none">
                 <li v-for="bc in breadcrumbs" :key="bc.url" class="inline-block mx-2 ">
                     <Link
                     :href="bc.url"
