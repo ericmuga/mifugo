@@ -34,9 +34,9 @@
                             type="submit"
                             :disabled="((form.email===null)&&(form.password===null))||(form.processing)"
                             />
-
-                  <Button label="Register" icon="pi pi-book" class="p-button-info rounded-sm"/>
-
+                   <Link href="users/create">
+                     <Button label="Register" icon="pi pi-book" class="p-button-info rounded-sm"/>
+                  </Link>
 
                 </div>
 

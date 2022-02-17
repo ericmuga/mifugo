@@ -2,24 +2,27 @@
 <Breadcrumbs :breadcrumbs="breadcrumbs"/>
     <div class="grid grid-cols-3 mx-10 min-h-screen gap-3">
 
-     <div class="col col-span-1 border  shadow-sky-100 rounded-md bg-[url('/images/cows.jpg')] opacity-70 bg-slate-300  ">
+     <div class="col col-span-1 border  shadow-sky-100 rounded-md bg-[url('/images/cows.jpg')] opacity-70 bg-slate-300 overflow-hidden ">
 
      </div>
       <!-- List -->
     <div class="col col-span-2">
-    <div class="border-2 border-sky-200 shadow-sm shadow-red-50 my-5 rounded-lg py-3 px-3">
-        <div class="w-1/2 bg-slate-300 h-full m-5 p-5 relative flex flex-auto flex-shrink shadow-sm shadow-teal-50 block border-2">
+    <div class=" flex border-2 border-sky-200 shadow-sm shadow-red-50 my-5 rounded-lg py-3 px-3">
+        <div class="w-1/2 bg-slate-300 h-full m-5 p-5 relative  flex-shrink shadow-sm shadow-teal-50 block border-2">
                Graph will come here
         </div>
 
-       <div class="flex justify-end rounded-t-sm rounded-b-sm">
-           <InputText v-model="searchKey"
-            class="flext h-10 px-5 pr-5 text-black rounded-md bg-slate-100"
+
+
+       <div class="flex flex-col flex-shrink flex-grow flex-auto w-1/2">
+        <div class=" flex justify-end mb-1 ">
+            <InputText v-model="searchKey"
+            class=" flex mb-4 h-10 px-5 pr-5 text-black rounded-md bg-slate-100"
             placeholder="Search" />
+        </div>
 
-      </div>
 
-       <div class="flex justify-end flex-shrink flex-grow flex-auto">
+
         <table class="mt-3 table-auto flex-shrink">
           <thead class="text-left text-white uppercase bg-teal-500 text-sm w-md ">
             <tr class="">
@@ -89,11 +92,13 @@
 
             <!-- More people... -->
           </tbody>
+
+        </table>
+
 <div class="p-3 mt-6 text-black">
                         <Link v-for="link in items.meta.links" v-html="link.label" :href="link.url" :key="link.url" preserveScroll class="p-2 border-2 border-white border-sm hover:bg-slate-200 hover:font-bold" >
                         </Link>
-                    </div>
-        </table>
+            </div>
         </div>
  <!--pagination -->
 
@@ -186,7 +191,8 @@ import  debounce  from "lodash/debounce";
              {
                form.post(route('fields.store'),{
                preserveScroll: true,
-                onSuccess: () => (form.reset('name').form.reset('description'))
+                onSuccess: () => (form.reset('name','description')
+                                  )
              })
              }
             return {

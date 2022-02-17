@@ -1,9 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\FieldController;
-use App\Models\Field;
+use App\Http\Controllers\{FieldController,AuthController,UserController};
+use App\Models\{Field,User};
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +23,25 @@ Route::resource('fields', FieldController::class)
             'show' => fn(Field $field) => $field->name,
             'edit' => 'Edit',
         ]);
+Route::resource('users', UserController::class)
+     ->breadcrumbs([
+              'index'=>'Users',
+              'create'=>'New User',
+              'show' =>fn(User $user)=>$user->name,
+              'edit'=>'Edit'
+     ]);
 
 Route::get('/', function () {
     return inertia('Landing');
 })->name('home')
 ->breadcrumb('Home');
+
+//protected routes
+Route::prefix('admin')
+     ->middleware('auth')
+     ->group(function () {
+        Route::get('dashboard',fn()=>(inertia('Dashboard/Admin')))
+            ->name('dashboard')
+            ->breadcrumb('dashboard');
+});
+
