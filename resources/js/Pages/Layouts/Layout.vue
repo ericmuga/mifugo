@@ -1,33 +1,149 @@
 <template>
-    <div>
+    <div class="container px-4 mx-auto">
         <!--nav bar -->
          <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
-            <div class="container flex flex-wrap justify-between items-center mx-auto">
+            <div class="container flex flex-wrap items-center justify-between mx-auto">
                 <a href="#" class="flex">
-                <svg class="mr-3 h-10" viewBox="0 0 52 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.87695 53H28.7791C41.5357 53 51.877 42.7025 51.877 30H24.9748C12.2182 30 1.87695 40.2975 1.87695 53Z" fill="#76A9FA"/><path d="M0.000409561 32.1646L0.000409561 66.4111C12.8618 66.4111 23.2881 55.9849 23.2881 43.1235L23.2881 8.87689C10.9966 8.98066 1.39567 19.5573 0.000409561 32.1646Z" fill="#A4CAFE"/><path d="M50.877 5H23.9748C11.2182 5 0.876953 15.2975 0.876953 28H27.7791C40.5357 28 50.877 17.7025 50.877 5Z" fill="#1C64F2"/></svg>
+                <svg class="h-10 mr-3" viewBox="0 0 52 72" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.87695 53H28.7791C41.5357 53 51.877 42.7025 51.877 30H24.9748C12.2182 30 1.87695 40.2975 1.87695 53Z" fill="#76A9FA"/><path d="M0.000409561 32.1646L0.000409561 66.4111C12.8618 66.4111 23.2881 55.9849 23.2881 43.1235L23.2881 8.87689C10.9966 8.98066 1.39567 19.5573 0.000409561 32.1646Z" fill="#A4CAFE"/><path d="M50.877 5H23.9748C11.2182 5 0.876953 15.2975 0.876953 28H27.7791C40.5357 28 50.877 17.7025 50.877 5Z" fill="#1C64F2"/></svg>
                     <span class="self-center text-lg font-semibold whitespace-nowrap dark:text-white">Mifugo App</span>
                 </a>
-                <button data-collapse-toggle="mobile-menu" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="mobile-menu-2" aria-expanded="false">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-                <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </button>
+                <button data-collapse-toggle="mobile-menu"
+                             type="button"
+                             class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                             aria-controls="mobile-menu-2"
+                             aria-expanded="false"
+                             @click="showmenu()">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                    <svg class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
                 <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
                 <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
                     <li>
-                    <a href="#" class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
+                    <a href="#" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white" aria-current="page">Home</a>
                     </li>
                     <li>
-                    <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
                     </li>
                     <li>
-                    <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
                     </li>
                     <li>
-                    <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
+                    <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
                     </li>
                     <li>
-                    <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+                      <a href="#" class="block py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+                    </li>
+
+                    <li><Menu as="div" class="relative inline-block text-left">
+      <div >
+        <MenuButton
+          class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        >
+           Welcome <div v-if="user" class="ml-2">{{user.name}} </div>
+           <div v-else class="ml-2">
+               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+</svg>
+                </div>
+
+           !
+          <ChevronDownIcon
+            class="w-5 h-5 ml-2 -mr-1 text-violet-200 hover:text-violet-100"
+            aria-hidden="true"
+          />
+        </MenuButton>
+      </div>
+
+      <transition
+        enter-active-class="transition duration-100 ease-out"
+        enter-from-class="transform scale-95 opacity-0"
+        enter-to-class="transform scale-100 opacity-100"
+        leave-active-class="transition duration-75 ease-in"
+        leave-from-class="transform scale-100 opacity-100"
+        leave-to-class="transform scale-95 opacity-0"
+      >
+        <MenuItems
+          class="absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+        >
+          <div class="px-1 py-1">
+            <MenuItem v-slot="{ active }" class="mb-2">
+              <Button
+                    icon="pi pi-user-edit"
+                    label="Edit"
+                    :class="[
+                  active ? 'bg-violet-500 text-white' : 'text-gray-900',
+                  'group flex rounded-md items-center w-full px-2 py-2 text-sm p-button-text',
+                ]">
+                    </Button>
+            </MenuItem>
+            <MenuItem v-slot="{ active }" class="mb-2">
+              <Button
+                :class="[
+                  active ? 'bg-violet-500 text-white' : 'text-gray-900',
+                  'group flex rounded-md items-center w-full px-2 py-2 text-sm p-button-text',
+                ]"
+                icon="pi pi-sign-out"
+                label="Logout"
+                @click="logout"
+              />
+
+
+            </MenuItem>
+          </div>
+          <!-- <div class="px-1 py-1">
+            <MenuItem v-slot="{ active }">
+              <button
+                :class="[
+                  active ? 'bg-violet-500 text-white' : 'text-gray-900',
+                  'group flex rounded-md items-center w-full px-2 py-2 text-sm',
+                ]"
+              >
+                <ArchiveIcon
+                  :active="active"
+                  class="w-5 h-5 mr-2 text-violet-400"
+                  aria-hidden="true"
+                />
+                Archive
+              </button>
+            </MenuItem>
+            <MenuItem v-slot="{ active }">
+              <button
+                :class="[
+                  active ? 'bg-violet-500 text-white' : 'text-gray-900',
+                  'group flex rounded-md items-center w-full px-2 py-2 text-sm',
+                ]"
+              >
+                <MoveIcon
+                  :active="active"
+                  class="w-5 h-5 mr-2 text-violet-400"
+                  aria-hidden="true"
+                />
+                Move
+              </button>
+            </MenuItem>
+          </div>
+
+          <div class="px-1 py-1">
+            <MenuItem v-slot="{ active }">
+              <button
+                :class="[
+                  active ? 'bg-violet-500 text-white' : 'text-gray-900',
+                  'group flex rounded-md items-center w-full px-2 py-2 text-sm',
+                ]"
+              >
+                <DeleteIcon
+                  :active="active"
+                  class="w-5 h-5 mr-2 text-violet-400"
+                  aria-hidden="true"
+                />
+                Delete
+              </button>
+            </MenuItem>
+          </div> -->
+        </MenuItems>
+      </transition>
+    </Menu>
                     </li>
                 </ul>
                 </div>
@@ -36,16 +152,16 @@
         <!--end of nav bar -->
         <main>
             <!--content section -->
-            <section class="my-4 mx-5 p-5 border-2 border-teal-300 shadow-lg shadow-gray-500">
+            <section class="p-5 mx-5 my-4 border-2 border-teal-300 shadow-lg shadow-gray-500">
              <slot/>
             </section>
         </main>
 
             <!--footer -->
-            <footer class="text-center bg-gray-900 text-white">
+            <footer class="text-center text-white bg-gray-900">
                 <div class="container px-6 pt-6">
                     <div class="flex justify-center mb-6">
-                    <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                    <a href="#!" type="button" class="m-1 leading-normal text-white uppercase transition duration-150 ease-in-out border-2 border-white rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
                         <svg aria-hidden="true"
                         focusable="false"
                         data-prefix="fab"
@@ -62,7 +178,7 @@
                         </svg>
                     </a>
 
-                    <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                    <a href="#!" type="button" class="m-1 leading-normal text-white uppercase transition duration-150 ease-in-out border-2 border-white rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
                         <svg aria-hidden="true"
                         focusable="false"
                         data-prefix="fab"
@@ -79,7 +195,7 @@
                         </svg>
                     </a>
 
-                    <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                    <a href="#!" type="button" class="m-1 leading-normal text-white uppercase transition duration-150 ease-in-out border-2 border-white rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
                         <svg aria-hidden="true"
                         focusable="false"
                         data-prefix="fab"
@@ -96,7 +212,7 @@
                         </svg>
                     </a>
 
-                    <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                    <a href="#!" type="button" class="m-1 leading-normal text-white uppercase transition duration-150 ease-in-out border-2 border-white rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
                         <svg aria-hidden="true"
                         focusable="false"
                         data-prefix="fab"
@@ -113,7 +229,7 @@
                         </svg>
                     </a>
 
-                    <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                    <a href="#!" type="button" class="m-1 leading-normal text-white uppercase transition duration-150 ease-in-out border-2 border-white rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
                         <svg aria-hidden="true"
                         focusable="false"
                         data-prefix="fab"
@@ -130,7 +246,7 @@
                         </svg>
                     </a>
 
-                    <a href="#!" type="button" class="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                    <a href="#!" type="button" class="m-1 leading-normal text-white uppercase transition duration-150 ease-in-out border-2 border-white rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 w-9 h-9">
                         <svg aria-hidden="true"
                         focusable="false"
                         data-prefix="fab"
@@ -150,7 +266,7 @@
 
                     <div>
                     <form action="">
-                        <div class="grid md:grid-cols-3 gird-cols-1 gap-4 flex justify-center items-center">
+                        <div class="flex grid items-center justify-center gap-4 md:grid-cols-3 gird-cols-1">
                         <div class="md:ml-auto md:mb-6">
                             <p class="">
                             <strong>Sign up for our newsletter</strong>
@@ -181,8 +297,8 @@
                             placeholder="Email address"/>
                         </div>
 
-                        <div class="md:mr-auto mb-6">
-                            <button type="submit" class="inline-block px-6 py-2 border-2 border-white text-white font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">
+                        <div class="mb-6 md:mr-auto">
+                            <button type="submit" class="inline-block px-6 py-2 text-xs font-medium leading-tight text-white uppercase transition duration-150 ease-in-out border-2 border-white rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0">
                             Subscribe
                             </button>
                         </div>
@@ -202,7 +318,7 @@
                     <div class="mb-6">
                         <h5 class="uppercase font-bold mb-2.5">Links</h5>
 
-                        <ul class="list-none mb-0">
+                        <ul class="mb-0 list-none">
                         <li>
                             <a href="#!" class="text-white">Link 1</a>
                         </li>
@@ -221,7 +337,7 @@
                     <div class="mb-6">
                         <h5 class="uppercase font-bold mb-2.5">Links</h5>
 
-                        <ul class="list-none mb-0">
+                        <ul class="mb-0 list-none">
                         <li>
                             <a href="#!" class="text-white">Link 1</a>
                         </li>
@@ -240,7 +356,7 @@
                     <div class="mb-6">
                         <h5 class="uppercase font-bold mb-2.5">Links</h5>
 
-                        <ul class="list-none mb-0">
+                        <ul class="mb-0 list-none">
                         <li>
                             <a href="#!" class="text-white">Link 1</a>
                         </li>
@@ -259,7 +375,7 @@
                     <div class="mb-6">
                         <h5 class="uppercase font-bold mb-2.5">Links</h5>
 
-                        <ul class="list-none mb-0">
+                        <ul class="mb-0 list-none">
                         <li>
                             <a href="#!" class="text-white">Link 1</a>
                         </li>
@@ -277,7 +393,7 @@
                     </div>
                 </div>
 
-                <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.2);">
+                <div class="p-4 text-center" style="background-color: rgba(0, 0, 0, 0.2);">
                     © 2022 Copyright:
                     <a class="text-white" href="https://tailwind-elements.com/">Mifugo App</a>
                 </div>
@@ -288,23 +404,54 @@
 
 
 <script>
-    import { ref, reactive } from 'vue';
+    import { ref, reactive,defineComponent,computed } from 'vue';
+import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+import { ChevronDownIcon } from '@heroicons/vue/solid'
+import { usePage } from '@inertiajs/inertia-vue3'
+import { Inertia } from '@inertiajs/inertia';
+// import ArchiveIcon from './archive-icon.vue'
+// import DuplicateIcon from './duplicate-icon.vue'
+// import MoveIcon from './move-icon.vue'
+// import EditIcon from './edit-icon.vue'
+// import DeleteIcon from './delete-icon.vue'
+    export default defineComponent({
+components: {
+      Menu,
+      MenuButton,
+      MenuItems,
+      MenuItem,
+     ChevronDownIcon,
+    // ArchiveIcon,
+    // DuplicateIcon,
+    // MoveIcon,
+    // EditIcon,
+    // DeleteIcon,
+    },
 
-    export default {
         props:{
              breadcrumbs:Object,
              errors:Object
         },
-        setup(props, context) {
-            // const featureRef = ref(value);
-            // const featureState = reactive({ property: 'value' });
 
+
+
+        setup(props, context) {
+
+            function showmenu()
+            {
+              //show the mobile menu here
+             }
+
+             function logout(){
+                 Inertia.post(route('logout'))
+             }
+
+             const user = computed(() => usePage().props.value.auth.user)
             return {
-                // featureRef,
-                // featureState
+                user,showmenu,logout
             }
         }
-    }
+    })
 </script>
 
 <style lang="scss" scoped>

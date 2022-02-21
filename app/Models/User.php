@@ -36,6 +36,8 @@ class User extends Authenticatable
     ];
 
     /**
+     *
+     *
      * The attributes that should be cast.
      *
      * @var array<string, string>
@@ -44,8 +46,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+     public function setPasswordAttribute($value)
+     {
+         return $this->attributes['password']=bcrypt($value);
+     }
     public function field()
     {
         return $this->belongsTo(Field::class);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }

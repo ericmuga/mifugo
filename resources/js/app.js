@@ -15,7 +15,9 @@ import { InertiaProgress } from '@inertiajs/progress'
 //  import Breadcrumb from 'primevue/breadcrumb';\
 import Breadcrumbs from '@/components/Breadcrumbs.vue'
 import FileUpload from 'primevue/fileupload';
-
+import Avatar from 'primevue/avatar';
+import AvatarGroup from 'primevue/avatargroup';
+import Pagination from '@/components/Pagination.vue'
 
 import route from "ziggy";
 import ToastService from 'primevue/toastservice';
@@ -40,8 +42,11 @@ createInertiaApp({
             .component('Dropdown',Dropdown)
             // .component('Breadcrumb',Breadcrumb)
             .component('Checkbox',Checkbox)
+            .component('Avatar',Avatar)
+            .component('AvatarGroup',AvatarGroup)
             .component('Toast',Toast)
             .component('Breadcrumbs',Breadcrumbs)
+            .component('Pagination',Pagination)
             .component('FileUpload',FileUpload)
             .mixin({ methods: { route } })
             .mount(el);

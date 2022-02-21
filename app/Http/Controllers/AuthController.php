@@ -9,24 +9,43 @@ class AuthController extends Controller
 {
     public function create ()
     {
-        return inertia('Auth/Login');
+        if (!Auth::check())
+        {
+            return inertia('Auth/Login');
+         }
+        else return redirect()->intended(route('dashboard'));
     }
+
     public function store (Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
 
-        if (Auth::attempt($credentials,$request->remember)) {
-            $request->session()->regenerate();
+            $credentials = $request->validate([
+                'email' => ['required', 'email'],
+                'password' => ['required'],
+            ]);
 
-            return redirect()->intended();
-        }
+
+            if (Auth::attempt($credentials,$request->remember)) {
+                $request->session()->regenerate();
+
+                return redirect()->intended('dashboard');
+            }
+
 
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
     }
+
+    public function logout(Request $request)
+            {
+                Auth::logout();
+
+                $request->session()->invalidate();
+
+                $request->session()->regenerateToken();
+
+                return redirect('/');
+            }
 
 }

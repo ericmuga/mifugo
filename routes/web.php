@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{FieldController,AuthController,UserController};
+use App\Http\Controllers\{FieldController,AuthController,UserController,DashboardController};
 use App\Models\{Field,User};
 
 /*
@@ -16,6 +16,8 @@ use App\Models\{Field,User};
 */
 Route::get('/login',[AuthController::class,'create'])->name('login');
 Route::post('/login',[AuthController::class,'store'])->name('login.store');
+Route::post('logout',[AuthController::class,'logout'])->name('logout');
+
 Route::resource('fields', FieldController::class)
         ->breadcrumbs([
             'index' => 'Fields',
@@ -37,10 +39,9 @@ Route::get('/', function () {
 ->breadcrumb('Home');
 
 //protected routes
-Route::prefix('admin')
-     ->middleware('auth')
+Route::middleware('auth')
      ->group(function () {
-        Route::get('dashboard',fn()=>(inertia('Dashboard/Admin')))
+        Route::get('dashboard',[DashboardController::class,'show'])
             ->name('dashboard')
             ->breadcrumb('dashboard');
 });

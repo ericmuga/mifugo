@@ -8,7 +8,8 @@
 
                     class="text-xs font-medium uppercase"
                     >
-                    {{bc.title}}  >
+                    {{bc.title}}
+                    <span v-if="index != Object.keys(breadcrumbs).length - 1">/</span>
                     </Link>
                 </li>
             </ul>
