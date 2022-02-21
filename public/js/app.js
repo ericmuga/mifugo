@@ -21081,7 +21081,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "flex items-end justify-end w-full py-2 mb-3 mr-10 space-x-4 rounded-md bg-slate-300-border-2"
+  "class": "flex items-end justify-end w-full space-x-4 rounded-md bg-slate-300-border-2"
 };
 var _hoisted_2 = {
   "class": "float-right p-input-icon-right"
@@ -21094,22 +21094,12 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_4 = {
-  "class": "flex rounded-lg shadow-sm shadow-gray-600"
+  "class": "grid w-full gap-3 p-5 my-4 border-2 rounded-md shadow-lg lg:grid-cols-3 md:grid-cols-2 shadow-gray-600 border-sky-400"
 };
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "m-3 rounded-lg"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Sidebar "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Sidebar /> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex flex-col justify-center w-full rounded-lg shadow-sm\">\n            <ul class=\"\">\n                <li class=\"w-full\">\n                    <Button type=\"button\"\n                            label=\"Animals\"\n                            icon=\"pi pi-book\"\n                            class=\"p-button-warning\"\n                            :badge=totalAnimals\n                            badgeClass=\"p-badge-danger\" /> </li>\n               <div class=\"w-full pb-2\"> <hr></div>\n                <li>\n                     <Button\n                         type=\"button\"\n                         label=\"Posts\"\n                          icon=\"pi pi-github\"\n                          class=\"p-button-warning\"\n                          :badge=totalPosts\n                          badgeClass=\"p-badge-danger\" /> </li>\n                <li>Seccond</li>\n                <li>Third</li>\n                <li>Fourth</li>\n            </ul>\n        </div> ")], -1
-/* HOISTED */
-);
-
+var _hoisted_5 = {
+  "class": "flex p-5 border-2 border-gray-300 rounded-md shadow-slate-500 border-1"
+};
 var _hoisted_6 = {
-  "class": "grid w-full gap-3 p-5 mx-4 my-4 border-2 rounded-md shadow-lg lg:grid-cols-3 md:grid-cols-1 shadow-gray-600 border-sky-400"
-};
-var _hoisted_7 = {
-  "class": "flex p-5 border-gray-300 rounded-md shadow-md shadow-slate-500 border-1"
-};
-var _hoisted_8 = {
   "class": "w-full"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21141,17 +21131,17 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     icon: "pi pi-search",
     "class": "flex justify-end",
     placeholder: "Search"
-  })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("end of controls "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("content "), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.animals.data, function (animal) {
+  })])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("end of controls "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex rounded-lg shadow-sm shadow-gray-600\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"m-3 rounded-lg \">\n\n\n        </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("content "), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.animals.data, function (animal) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
       key: animal.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AnimalCard, {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AnimalCard, {
       animal: animal
     }, null, 8
     /* PROPS */
     , ["animal"])])]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination, {
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination, {
     items: $props.animals
   }, null, 8
   /* PROPS */
@@ -22119,78 +22109,77 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "relative flex flex-col w-full min-w-0 break-words bg-white rounded-lg shadow-xl"
-};
-var _hoisted_2 = {
   "class": "px-6"
 };
-var _hoisted_3 = {
+var _hoisted_2 = {
   "class": "flex flex-wrap justify-center"
 };
-var _hoisted_4 = {
+var _hoisted_3 = {
   "class": "flex justify-center w-full"
 };
-var _hoisted_5 = {
+var _hoisted_4 = {
   "class": "relative"
 };
-var _hoisted_6 = ["src"];
-var _hoisted_7 = {
+var _hoisted_5 = ["src"];
+var _hoisted_6 = {
   "class": "w-full px-4 text-center"
 };
-var _hoisted_8 = {
+var _hoisted_7 = {
   "class": "flex justify-center"
 };
-var _hoisted_9 = {
+var _hoisted_8 = {
   "class": "p-3 mr-4 text-center"
 };
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Posts ");
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Posts ");
 
-var _hoisted_11 = {
+var _hoisted_10 = {
   "class": "block text-xl font-bold tracking-wide uppercase text-blueGray-600"
 };
-var _hoisted_12 = {
+var _hoisted_11 = {
   "class": "mt-12 text-center"
 };
-var _hoisted_13 = {
+var _hoisted_12 = {
   "class": "mb-2 text-xl font-semibold leading-normal text-blueGray-700"
 };
-var _hoisted_14 = {
+var _hoisted_13 = {
   "class": "mt-0 mb-2 text-sm font-bold leading-normal uppercase text-blueGray-400"
 };
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "mr-2 text-lg fas fa-map-marker-alt text-blueGray-400"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_16 = {
+var _hoisted_15 = {
   "class": "mt-10 mb-2 text-blueGray-600"
 };
 
-var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "mr-2 text-lg fas fa-briefcase text-blueGray-400"
 }, null, -1
 /* HOISTED */
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\n    class=\"relative flex flex-col w-full min-w-0 break-words bg-white rounded-lg shadow-xl\"\n  > "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     alt: "...",
     src: $props.animal.url,
     "class": "w-40 h-40 align-middle border-none rounded-full shadow-xl"
   }, null, 8
   /* PROPS */
-  , _hoisted_6)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.posts_count), 1
+  , _hoisted_5)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.posts_count), 1
   /* TEXT */
-  )])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.name), 1
+  )])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.name), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.description), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.description), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [_hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.species), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.species), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"mb-2 text-blueGray-600\">\n          <i class=\"mr-2 text-lg fas fa-university text-blueGray-400\"></i>\n          University of Computer Science\n        </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"py-10 mt-10 text-center border-t border-blueGray-200\">\n        <div class=\"flex flex-wrap justify-center\">\n          <div class=\"w-full px-4 lg:w-9/12\">\n            <p class=\"mb-4 text-lg leading-relaxed text-blueGray-700\">\n              An artist of considerable range, Jenna the name taken by\n              Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and\n              records all of his own music, giving it a warm, intimate feel with\n              a solid groove structure. An artist of considerable range.\n            </p>\n            <a href=\"javascript:void(0);\" class=\"font-normal text-emerald-500\">\n              Show more\n            </a>\n          </div>\n        </div>\n      </div> ")])]);
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"mb-2 text-blueGray-600\">\n          <i class=\"mr-2 text-lg fas fa-university text-blueGray-400\"></i>\n          University of Computer Science\n        </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"py-10 mt-10 text-center border-t border-blueGray-200\">\n        <div class=\"flex flex-wrap justify-center\">\n          <div class=\"w-full px-4 lg:w-9/12\">\n            <p class=\"mb-4 text-lg leading-relaxed text-blueGray-700\">\n              An artist of considerable range, Jenna the name taken by\n              Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and\n              records all of his own music, giving it a warm, intimate feel with\n              a solid groove structure. An artist of considerable range.\n            </p>\n            <a href=\"javascript:void(0);\" class=\"font-normal text-emerald-500\">\n              Show more\n            </a>\n          </div>\n        </div>\n      </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </div> ")], 2112
+  /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
+  );
 }
 
 /***/ }),

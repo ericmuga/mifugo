@@ -1,7 +1,7 @@
 <template>
-  <div
+  <!-- <div
     class="relative flex flex-col w-full min-w-0 break-words bg-white rounded-lg shadow-xl"
-  >
+  > -->
     <div class="px-6">
       <div class="flex flex-wrap justify-center">
         <div class="flex justify-center w-full ">
@@ -64,7 +64,7 @@
         </div>
       </div> -->
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 <script>
 import { onMounted } from '@vue/runtime-core'
