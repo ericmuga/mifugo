@@ -2,7 +2,7 @@
   <!-- <div
     class="relative flex flex-col w-full min-w-0 break-words bg-white rounded-lg shadow-xl"
   > -->
-    <div class="px-6">
+    <div class="grid min-w-full px-6 place-items-center">
       <div class="flex flex-wrap justify-center">
         <div class="flex justify-center w-full ">
           <div class="relative">

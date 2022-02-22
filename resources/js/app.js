@@ -21,6 +21,7 @@ import Pagination from '@/components/Pagination.vue'
 
 import route from "ziggy";
 import ToastService from 'primevue/toastservice';
+import {  Ziggy } from './ziggy';
 
 createInertiaApp({
 
@@ -48,7 +49,7 @@ createInertiaApp({
             .component('Breadcrumbs',Breadcrumbs)
             .component('Pagination',Pagination)
             .component('FileUpload',FileUpload)
-            .mixin({ methods: { route } })
+            .mixin({ methods: { route: (name, params, absolute) => route(name, params, absolute, Ziggy) } })
             .mount(el);
     },
 });

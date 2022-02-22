@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Animal;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class AnimalController extends Controller
 {
@@ -14,7 +17,7 @@ class AnimalController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -24,7 +27,7 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        //
+        return inertia('Animal/Create');
     }
 
     /**
@@ -35,7 +38,39 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->all());
+
+        $request->validate([
+
+                     'name'=>['required','unique:animals,name'],
+                     'description'=>'required',
+
+        ]);
+
+        $string='';
+
+        if($request->hasFile('avatar')){
+           $file = $request->file('avatar');
+           $string=Str::slug(Carbon::now()->toDateTimeString(), '-');
+           $path = $request->file('avatar')
+                           ->store('',['disk'=>'public_uploads']);
+
+           // if(!Storage::disk('public_uploads')->put($path,$request->file('avatar')));
+
+
+
+
+
+
+       }
+
+        Animal::create([
+                          'name'=>$request->name,
+                          'description'=>$request->description,
+                          'species'=>$request->has('species')?$request->species:'',
+                          'url'=>url('/images//'.$path)
+           ]);
+         return redirect(route('dashboard'))->with('message','Success');
     }
 
     /**

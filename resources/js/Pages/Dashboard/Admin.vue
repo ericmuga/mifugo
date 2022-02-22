@@ -6,19 +6,24 @@
       <!--controls -->
 
       <div class="flex items-end justify-end w-full space-x-4 rounded-md bg-slate-300-border-2">
-         <Button
-       icon="pi pi-plus"
-       label="Add Animal"
-       severity="danger"
-       type="button"
-       class="flex flex-shrink"
-      />
+
+         <Link href="/animals/create">
+                <Button
+                    icon="pi pi-plus"
+                    label="Add Animal"
+                    severity="danger"
+                    type="button"
+                    class="flex flex-shrink"
+                />
+         </Link>
+
       <span class="float-right p-input-icon-right">
                 <i class="pi pi-search" />
                 <InputText
                     icon="pi pi-search"
                     class="flex justify-end"
                     placeholder="Search"
+                    v-model="search"
                 />
             </span>
 
@@ -50,23 +55,26 @@
 </template>
 
 <script>
-    import { ref, reactive } from 'vue';
+    import { ref, reactive, watch } from 'vue';
     import Layout from '@/Pages/Layouts/Layout'
     import Sidebar from '@/components/Sidebar2'
     import AnimalCard from '@/components/AnimalCard'
 import Pagination from '../../components/Pagination.vue';
+import { Inertia } from '@inertiajs/inertia';
+import debounce from 'lodash/debounce'
 // import Breadcrumbs from '../../components/Breadcrumbs.vue';
     export default {
          props:{ breadcrumbs:Object,
                  animals:Object,
                  totalAnimals:Object,
                  totalPosts:Object,
-
+                 search:String
          },
          components:{
            Sidebar,
            AnimalCard,
-                  Pagination
+                  Pagination,
+
          },
         layout:Layout,
         setup(props, context) {
@@ -74,7 +82,14 @@ import Pagination from '../../components/Pagination.vue';
             // const featureRef = ref(value);
             // const featureState = reactive({ property: 'value' });
 
+           const search = ref(props.search)
+
+           watch(search,debounce(function(value){
+                                               Inertia.get(route('dashboard'),{'search':value},{preserveState:true})
+                                               },300))
+
             return {
+                search
                 // breadcrumbs
                 // featureRef,
                 // featureState

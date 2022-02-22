@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{FieldController,AuthController,UserController,DashboardController};
-use App\Models\{Field,User};
+use App\Http\Controllers\{FieldController,AuthController,UserController,DashboardController,AnimalController};
+use App\Models\{Animal, Field,User};
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +25,7 @@ Route::resource('fields', FieldController::class)
             'show' => fn(Field $field) => $field->name,
             'edit' => 'Edit',
         ]);
-Route::resource('users', UserController::class)
-     ->breadcrumbs([
-              'index'=>'Users',
-              'create'=>'New User',
-              'show' =>fn(User $user)=>$user->name,
-              'edit'=>'Edit'
-     ]);
+
 
 Route::get('/', function () {
     return inertia('Landing');
@@ -44,5 +38,13 @@ Route::middleware('auth')
         Route::get('dashboard',[DashboardController::class,'show'])
             ->name('dashboard')
             ->breadcrumb('dashboard');
+
+        Route::resource('animals', AnimalController::class)
+            ->breadcrumbs([
+                    'index'=>'Animals',
+                    'create'=>'New Animal',
+                    'show' =>fn(Animal $animal)=>$animal->name,
+                    'edit'=>'Edit'
+            ]);
 });
 

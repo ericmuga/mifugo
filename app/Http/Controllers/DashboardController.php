@@ -30,7 +30,7 @@ class DashboardController extends Controller
 
     public function show(Request $request)
     {
-       // dd($this->data($request));
+     //  dd($this->data($request));
         return inertia('Dashboard/Admin',$this->data($request));
     }
 }
