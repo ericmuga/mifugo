@@ -26,6 +26,13 @@ Route::resource('fields', FieldController::class)
             'edit' => 'Edit',
         ]);
 
+Route::resource('users', UserController::class)
+        ->breadcrumbs([
+            'index' => 'Users',
+            'create' => 'New user',
+            'show' => fn(Field $user) => $user->name,
+            'edit' => 'Edit',
+        ]);
 
 Route::get('/',[AuthController::class,'create']// function () {
     // return inertia('Landing');

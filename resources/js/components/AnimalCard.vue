@@ -2,9 +2,9 @@
   <!-- <div
     class="relative flex flex-col w-full min-w-0 break-words bg-white rounded-lg shadow-xl"
   > -->
-    <div class="grid min-w-full px-6 place-items-center">
+    <div class="relative grid px-6 place-items-center">
       <div class="flex flex-wrap justify-center">
-        <div class="flex justify-center w-full ">
+        <div class="flex justify-center ">
           <div class="relative">
             <img
               alt="..."
@@ -12,6 +12,7 @@
               class="w-40 h-40 align-middle border-none rounded-full shadow-xl"
             />
           </div>
+
         </div>
         <div class="w-full px-4 text-center">
           <div class="flex justify-center ">
@@ -67,7 +68,7 @@
   <!-- </div> -->
 </template>
 <script>
-import { onMounted } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 // import team2 from "../../img/team-3-800x800.jpg";
 
 // import Layout from '../Pages/Dashboard/Admin.vue'
@@ -76,7 +77,7 @@ export default {
  props:{
      animal:Object,
  },
-
+     //showLink(id)=computed(()=>)
 
      setup(props){
 

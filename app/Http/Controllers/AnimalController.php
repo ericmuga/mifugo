@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Animal;
+use App\Models\{Animal,Post};
+use App\Http\Resources\{AnimalResource,PostResource};
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -79,9 +80,21 @@ class AnimalController extends Controller
      * @param  \App\Models\Animal  $animal
      * @return \Illuminate\Http\Response
      */
-    public function show(Animal $animal)
+    public function show(Animal $animal, Request $request)
     {
         //
+        //   dd('here');
+
+        ///dd(new AnimalResource($animal));
+        return inertia('Animal/Show',['animal'=>new AnimalResource(Animal::find($animal->id)),
+                                       'posts'=>PostResource::collection($animal->posts()
+                                                                                ->when($request->input('search'),fn($q,$search)=>($q->where('title','like',$search.'%')
+                                                                                                                                    ->orWhere('dimension','like',$search.'%')
+                                                                                                                                    ->orWhere('type','like',$search.'%')
+                                                                                                                                    ))
+                                                                                ->paginate(5)
+                                                                                ->withQueryString()),
+                                     ]);
     }
 
     /**

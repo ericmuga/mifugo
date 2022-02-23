@@ -43,7 +43,21 @@
          <!--content -->
 
             <div v-for="animal in animals.data" :key="animal.id">
-                    <div class="flex p-5 border-2 border-gray-300 rounded-md shadow-slate-500 border-1">
+                  <Link :href="`/animals/${animal.id}`"
+
+                           >
+                           <div class="justify-end float-right max-w-sm p-3 rounded-md shadow-sm shadow-slate-200 -ml-96 shadow-slate-400">
+
+                            <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" />
+                          </div>
+                          </Link>
+
+
+
+
+
+                      <div class="flex p-5 border-2 border-gray-300 rounded-md shadow-slate-500 border-1">
+
                         <AnimalCard :animal="animal" />
                     </div>
             </div>
@@ -83,6 +97,7 @@ import debounce from 'lodash/debounce'
             // const featureState = reactive({ property: 'value' });
 
            const search = ref(props.search)
+
 
            watch(search,debounce(function(value){
                                                Inertia.get(route('dashboard'),{'search':value},{preserveState:true})

@@ -3,15 +3,15 @@
        <Breadcrumbs :breadcrumbs="breadcrumbs"/>
     </div>
 
-    <div class="grid grid-cols-2 gap-2">
+    <div class="grid gap-2 md:grid-cols-2">
 
 
-    <div class="col-span-1 bg-[url('/images/cow3.png')] m-5 p-5 shadow-lg bg-cover  shadow-gray-400  border-2 border-teal-200 ">
+    <div class=" sm:invisible md:visible md:col-span-1 md:bg-[url('/images/cow3.png')] rounded-md sm:bg-teal-50 m-5 p-5 shadow-lg bg-cover  shadow-gray-400  md:border-2 md:border-teal-200 ">
 
     </div>
-     <div class="grid  col-span-1 min-h-screen place-items-center  -mt-8">
-     <div class="border-2 border-sky-300 p-4 rounded-lg ">
-         <div class="w-full bg-teal-400 uppercase text-center p-2 rounded mb-2">
+     <div class="grid min-h-screen col-span-1 place-items-center sm:-mt-8 sm:col-span-1 ">
+     <div class="p-4 border-2 rounded-lg border-sky-300 ">
+         <div class="w-full p-2 mb-2 text-center uppercase bg-teal-400 rounded">
              Register
          </div>
          <form  @submit.prevent="submit">
@@ -23,7 +23,7 @@
                      <span v-if="errors.name"><p class="text-xs text-red-300">{{errors.name}}</p></span>
                 </div>
 
-                <div class="text-slate-400 my-2"><hr></div>
+                <div class="my-2 text-slate-400"><hr></div>
 
                 <div class="p-inputgroup">
                     <span class="p-inputgroup-addon">
@@ -32,7 +32,7 @@
                     <InputText placeholder="Phone" v-model="form.phone" />
                      <span v-if="errors.phone"><p class="text-xs text-red-300">{{errors.phone}}</p></span>
                 </div>
-                <div class="text-slate-400 my-2"><hr></div>
+                <div class="my-2 text-slate-400"><hr></div>
                 <div class="p-inputgroup">
                     <span class="p-inputgroup-addon">
                         <i class="pi pi-envelope"></i>
@@ -43,7 +43,7 @@
 
 
 
-                <div class="text-slate-400 my-2"><hr></div>
+                <div class="my-2 text-slate-400"><hr></div>
 
                 <div class="p-inputgroup">
                     <span class="p-inputgroup-addon">
@@ -53,7 +53,7 @@
                    <span v-if="errors.password"><p class="text-xs text-red-300">{{errors.password}}</p></span>
                 </div>
 
-                <div class="text-slate-400 my-2"><hr></div>
+                <div class="my-2 text-slate-400"><hr></div>
                 <div class="p-inputgroup">
                     <span class="p-inputgroup-addon">
                         <i class="pi pi-key"></i>
@@ -67,7 +67,7 @@
                              :showClear="true"
                     />
                 </div>
-                <div class="text-slate-400 my-2"><hr></div>
+                <div class="my-2 text-slate-400"><hr></div>
 
                  <div class="p-inputgroup">
                     <span class="p-inputgroup-addon">
@@ -83,20 +83,20 @@
                     />
                 </div>
 
-                <div class="text-slate-400 my-2"><hr></div>
+                <div class="my-2 text-slate-400"><hr></div>
 
 
-                <div class="p-inputgroup space-x-2 flex justify-center ">
+                <div class="flex justify-center space-x-2 p-inputgroup ">
 
                  <Button
                             label="Register"
                             icon="pi pi-check"
-                            class="p-button-info rounded-sm"
+                            class="rounded-sm p-button-info"
                             type="submit"
                             :disabled="(form.name===null)||(form.email===null)||(form.password===null)||(form.processing)"
                             />
                    <!-- <Link href="users/create">
-                     <Button label="Register" icon="pi pi-book" class="p-button-info rounded-sm"/>
+                     <Button label="Register" icon="pi pi-book" class="rounded-sm p-button-info"/>
                   </Link> -->
 
                 </div>

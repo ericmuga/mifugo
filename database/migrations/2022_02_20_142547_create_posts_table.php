@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->longText('body')->nullable();
             $table->text('footer')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->string('dimension');
             $table->foreign('user_id')
                   ->references('id')
                   ->on('users')
