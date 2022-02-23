@@ -21575,7 +21575,7 @@ var _hoisted_1 = {
   "class": "flex items-end justify-end w-full space-x-4 rounded-md bg-slate-300-border-2"
 };
 var _hoisted_2 = {
-  "class": "float-right p-input-icon-right"
+  "class": "float-right place-items-center"
 };
 var _hoisted_3 = {
   "class": "flex justify-between space-x-2"
@@ -21622,7 +21622,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         label: "Add",
         severity: "danger",
         type: "button",
-        "class": "flex flex-shrink"
+        "class": "flex"
       })];
     }),
     _: 1

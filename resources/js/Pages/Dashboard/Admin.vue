@@ -9,7 +9,7 @@
 
 
 
-      <span class="float-right p-input-icon-right">
+      <span class="float-right place-items-center">
           <div class="flex justify-between space-x-2">
 
 
@@ -19,7 +19,7 @@
                     label="Add"
                     severity="danger"
                     type="button"
-                    class="flex flex-shrink"
+                    class="flex"
                 />
          </Link>
                 <InputText
