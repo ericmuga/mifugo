@@ -10,7 +10,7 @@
 
 
       <span class="float-right place-items-center">
-          <div class="flex justify-between space-x-2">
+          <div class="flex justify-between space-x-2 sm:flex-row">
 
 
            <Link href="/animals/create">

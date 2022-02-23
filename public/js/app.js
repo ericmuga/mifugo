@@ -21578,7 +21578,7 @@ var _hoisted_2 = {
   "class": "float-right place-items-center"
 };
 var _hoisted_3 = {
-  "class": "flex justify-between space-x-2"
+  "class": "flex justify-between space-x-2 sm:flex-row"
 };
 var _hoisted_4 = {
   "class": "grid w-full gap-3 my-4 lg:grid-cols-3 md:grid-cols-2"
