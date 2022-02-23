@@ -27,9 +27,10 @@ Route::resource('fields', FieldController::class)
         ]);
 
 
-Route::get('/', function () {
-    return inertia('Landing');
-})->name('home')
+Route::get('/',[AuthController::class,'create']// function () {
+    // return inertia('Landing');
+//}
+)->name('home')
 ->breadcrumb('Home');
 
 //protected routes
