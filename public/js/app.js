@@ -21278,7 +21278,7 @@ var _hoisted_16 = {
   "class": "overflow-hidden border-b border-gray-200 shadow sm:rounded-lg"
 };
 var _hoisted_17 = {
-  "class": "min-w-full divide-y divide-gray-200"
+  "class": "min-w-full divide-y divide-gray-200 table-fixed"
 };
 
 var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", {
@@ -21585,7 +21585,7 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_4 = {
-  "class": "grid w-full gap-3 p-5 my-4 border-2 rounded-md shadow-lg lg:grid-cols-3 md:grid-cols-2 shadow-gray-600 border-sky-400"
+  "class": "grid w-full gap-3 my-4 lg:grid-cols-3 md:grid-cols-2"
 };
 var _hoisted_5 = {
   "class": "justify-end float-right max-w-sm p-3 rounded-md shadow-sm shadow-slate-200 -ml-96 shadow-slate-400"
@@ -21622,8 +21622,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
-        icon: "pi pi-plus",
-        label: "Add Animal",
+        icon: "pi pi-user-plus",
+        label: "Add",
         severity: "danger",
         type: "button",
         "class": "flex flex-shrink"

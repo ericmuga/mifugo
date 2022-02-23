@@ -9,8 +9,8 @@
 
          <Link href="/animals/create">
                 <Button
-                    icon="pi pi-plus"
-                    label="Add Animal"
+                    icon="pi pi-user-plus"
+                    label="Add"
                     severity="danger"
                     type="button"
                     class="flex flex-shrink"
@@ -39,7 +39,7 @@
 
 
 
-        <div class="grid w-full gap-3 p-5 my-4 border-2 rounded-md shadow-lg lg:grid-cols-3 md:grid-cols-2 shadow-gray-600 border-sky-400 ">
+        <div class="grid w-full gap-3 my-4 lg:grid-cols-3 md:grid-cols-2 ">
          <!--content -->
 
             <div v-for="animal in animals.data" :key="animal.id">
