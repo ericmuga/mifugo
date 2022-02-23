@@ -7,7 +7,13 @@
 
       <div class="flex items-end justify-end w-full space-x-4 rounded-md bg-slate-300-border-2">
 
-         <Link href="/animals/create">
+
+
+      <span class="float-right p-input-icon-right">
+          <div class="flex justify-between space-x-2">
+
+
+           <Link href="/animals/create">
                 <Button
                     icon="pi pi-user-plus"
                     label="Add"
@@ -16,15 +22,12 @@
                     class="flex flex-shrink"
                 />
          </Link>
-
-      <span class="float-right p-input-icon-right">
-                <i class="pi pi-search" />
                 <InputText
                     icon="pi pi-search"
                     class="flex justify-end"
                     placeholder="Search"
                     v-model="search"
-                />
+                /></div>
             </span>
 
       </div>
