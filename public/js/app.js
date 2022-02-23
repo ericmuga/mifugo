@@ -21222,10 +21222,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "grid flex-col sm:grid-cols-1 md:grid-cols-3"
+  "class": "grid flex-col place-items-center sm:grid-cols-1 md:grid-cols-3"
 };
 var _hoisted_2 = {
-  "class": "flex justify-center col-span-1 mb-2 space-x-4"
+  "class": "flex justify-center col-span-1 mb-2"
 };
 var _hoisted_3 = {
   "class": "max-w-sm col-span-1 overflow-hidden rounded-md shadow-lg shadow-slate-400"
@@ -21339,6 +21339,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_InputText = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("InputText");
 
+  var _component_Pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Pagination");
+
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: "/dashboard"
   }, {
@@ -21389,7 +21391,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"text-sm text-gray-500\">{{ post.department }}</div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("\n                <td class=\"px-6 py-4 whitespace-nowrap\">\n                  <span class=\"inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full\"> Active </span>\n                </td>\n                <td class=\"px-6 py-4 text-sm text-gray-500 whitespace-nowrap\">\n                  {{ post.role }}\n                </td> "), _hoisted_26]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])])])])])])])]);
+  ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination, {
+    items: $props.posts
+  }, null, 8
+  /* PROPS */
+  , ["items"])])])])])])]);
 }
 
 /***/ }),
@@ -22020,7 +22026,7 @@ var _hoisted_22 = {
   "class": "px-1 py-1"
 };
 var _hoisted_23 = {
-  "class": "p-5 mx-5 my-4 border-2 rounded-md shadow-lg shadow-gray-500"
+  "class": "p-5 my-4 border-2 rounded-md shadow-lg shadow-gray-500"
 };
 
 var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("footer", {

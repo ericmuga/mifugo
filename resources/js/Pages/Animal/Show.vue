@@ -1,6 +1,6 @@
 <template>
-    <div class="grid flex-col sm:grid-cols-1 md:grid-cols-3 ">
-      <div class="flex justify-center col-span-1 mb-2 space-x-4 ">
+    <div class="grid flex-col place-items-center sm:grid-cols-1 md:grid-cols-3 ">
+      <div class="flex justify-center col-span-1 mb-2 ">
           <Link href="/dashboard">
              <Button icon=" pi pi-backward" label="All Animals" class="p-button-outlined p-button-info"/>
           </Link>
@@ -92,6 +92,7 @@
               </tr>
             </tbody>
           </table>
+          <Pagination :items=posts />
         </div>
       </div>
     </div>

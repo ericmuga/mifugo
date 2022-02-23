@@ -152,7 +152,7 @@
         <!--end of nav bar -->
         <main>
             <!--content section -->
-            <section class="p-5 mx-5 my-4 border-2 rounded-md shadow-lg shadow-gray-500">
+            <section class="p-5 my-4 border-2 rounded-md shadow-lg shadow-gray-500">
              <slot/>
             </section>
         </main>
