@@ -19,7 +19,8 @@ class PostFactory extends Factory
                  'body'=>$this->faker->paragraph(5,true),
                  'footer'=>$this->faker->sentence(),
                  'dimension'=>$this->faker->word(),
-                 'user_id'=>UserFactory::new()
+                 'user_id'=>UserFactory::new(),
+                 'count_media'=>$this->media()->count(),
 
         ];
     }

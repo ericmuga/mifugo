@@ -17,6 +17,11 @@ class Post extends Model
         return $this->belongsToMany(Animal::class);
     }
 
+    public function media()
+    {
+        return $this->belongsToMany(Medium::class);
+    }
+
    public function author()
    {
        return $this->user();

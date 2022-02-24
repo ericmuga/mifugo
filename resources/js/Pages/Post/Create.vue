@@ -44,7 +44,7 @@
                          <textarea
                             id="e-textarea"
                             class="w-full border-2 border-slate-200"
-                            row="50"
+                            rows="20"
                             cols="50"
 
                             placeholder="Type the body here.."
@@ -55,7 +55,7 @@
                     <textarea
                             id="e-textarea"
                             class="w-full border-2 border-slate-200"
-                            row="50"
+                            rows="5"
                             cols="50"
                             placeholder="Type the footer here.."
                         v-model="form.footer"
@@ -66,6 +66,16 @@
                             <progress v-if="form.progress" :value="form.progress.percentage" max="100">
                             {{ form.progress.percentage }}%
                             </progress>
+                            <div class="my-4 text-slate-400"><hr></div>
+                             <div class="field">
+                                <span class="p-float-label">
+                                    <InputText  type="text" v-model="form.media_description" />
+                                    <label for="dimension"  class="w-full -ml-2 text-center">Media Description</label>
+                                </span>
+                                <small v-if="errors.media_description" id="title-help" class="p-error">errors.media_description</small>
+                            </div>
+
+
                     <div class="my-4 text-slate-400"><hr></div>
                         <Button
                         class="text-center item-center"
@@ -73,7 +83,7 @@
                         label="Create Post"
                         icon="pi pi-check"
                         />
-
+                    <div class="my-4 text-slate-400"><hr></div>
             </form>
         <!-- </div> -->
 
@@ -85,17 +95,19 @@
     import { useForm } from '@inertiajs/inertia-vue3'
     import Layout from '@/Pages/Layouts/Layout'
     // import { reactive } from 'vue'
+    import { usePage } from '@inertiajs/inertia-vue3'
 import { Inertia } from '@inertiajs/inertia'
     export default {
 
         props:{
         errors:Object,
         animals:Object,
-       },
+        },
 
        layout:Layout,
 
         setup(props, context) {
+            //   const user = computed(() => usePage().props.value.auth.user)
             const form=reactive({
                                 title:null,
                                 dimension:null,
@@ -104,7 +116,9 @@ import { Inertia } from '@inertiajs/inertia'
                                 body:'',
                                 footer:'',
                                 type:'photo',
-                                }) ;
+                                media_description:null,
+                                // user_id:user.id
+                             }) ;
 
             function submit(){Inertia.post(route('posts.store'),form)}
 
