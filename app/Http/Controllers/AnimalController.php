@@ -48,19 +48,11 @@ class AnimalController extends Controller
 
         ]);
 
-        $string='';
 
         if($request->hasFile('avatar')){
-           $file = $request->file('avatar');
-           $string=Str::slug(Carbon::now()->toDateTimeString(), '-');
+
            $path = $request->file('avatar')
                            ->store('',['disk'=>'public_uploads']);
-
-           // if(!Storage::disk('public_uploads')->put($path,$request->file('avatar')));
-
-
-
-
 
 
        }
@@ -86,7 +78,7 @@ class AnimalController extends Controller
         //   dd('here');
 
         ///dd(new AnimalResource($animal));
-        return inertia('Animal/Show',['animal'=>new AnimalResource(Animal::find($animal->id)),
+        return inertia('Animal/Show',['animal'=>new AnimalResource($animal),
                                        'posts'=>PostResource::collection($animal->posts()
                                                                                 ->when($request->input('search'),fn($q,$search)=>($q->where('dimension','like',$search.'%')
                                                                                                                                     ->orWhere('type','like',$search.'%')
@@ -104,7 +96,7 @@ class AnimalController extends Controller
      */
     public function edit(Animal $animal)
     {
-        //
+        return inertia('Animal/Edit',['animal'=>new AnimalResource($animal)]);
     }
 
     /**
@@ -116,7 +108,30 @@ class AnimalController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
-        //
+        //   dd($request->all());
+         $request->validate([
+
+                     'name'=>['required','unique:animals,name,'.$animal->id],
+                     'description'=>'required',
+
+        ]);
+
+
+        if($request->hasFile('avatar')){
+
+           $path = $request->file('avatar')
+                           ->store('',['disk'=>'public_uploads']);
+
+
+       }
+
+        $animal->update([
+                          'name'=>$request->name,
+                          'description'=>$request->description,
+                          'species'=>$request->has('species')?$request->species:'',
+                          'url'=>url('/images//'.$path)
+           ]);
+         return redirect(route('animals.show',$animal->id))->with('message','Success');
     }
 
     /**
@@ -127,6 +142,8 @@ class AnimalController extends Controller
      */
     public function destroy(Animal $animal)
     {
-        //
+       $animal->posts()->detach();
+       $animal->delete();
+       return redirect(route('dashboard'))->with('message','Item successfully deleted!');
     }
 }

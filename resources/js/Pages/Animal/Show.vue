@@ -9,7 +9,7 @@
      <div class="col-span-1 rounded-md shadow-lg shadow-slate-400">
 
 
-        <img class="sm:object-scale-down" :src="animal.data.url" alt="Sunset in the mountains">
+        <img class="" :src="animal.data.url" alt="Sunset in the mountains">
         <div class="px-6 py-4">
             <div class="mb-2 text-xl font-bold tracking-wide text-center uppercase">{{animal.data.name}}</div>
             <p class="text-base text-center text-gray-700">
@@ -27,8 +27,10 @@
             <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">#winter</span>
         </div>
         <div class="flex items-center justify-center mb-5 space-x-5 ">
-        <Button icon="pi pi-pencil" class="p-button-rounded" />
-        <Button icon="pi pi-times" class="p-button-rounded p-button-danger" />
+        <Link :href="`${animal.data.id}/edit`">
+           <Button icon="pi pi-pencil" class="p-button-rounded" />
+        </Link>
+        <Button @click="drop()" icon="pi pi-times" class="p-button-rounded p-button-danger" />
 
         </div>
 
@@ -36,21 +38,17 @@
 
     <!--animal Posts begin here -->
 
-    <div class="col-span-1 p-3 mt-2 rounded-md shadow-md shadow-slate-400">
+    <div class="object-scale-down col-span-1 p-3 mt-2 overflow-scroll rounded-md shadow-md shadow-slate-400">
          <div class="flex justify-end mb-1 ">
             <InputText v-model="searchKey"
             class="flex h-10 px-5 pr-5 mb-4 text-black rounded-md bg-slate-100"
             placeholder="Search" />
         </div>
-    <div class="object-contain">
-      <div class="">
-        <div class="">
           <table class="">
             <thead class="bg-gray-50">
               <tr>
-                <!-- <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Name</th> -->
                 <th scope="col" class="text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Dimension</th>
-                <th scope="col" class="text-xs font-medium tracking-wider text-left text-gray-500 uppercase">type</th>
+                <th scope="col" class="text-xs font-medium tracking-wider text-left text-gray-500 uppercase sm:hidden">type</th>
                 <th scope="col" class="text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Actions</th>
                 <th scope="col" class="relative">
                   <span class="sr-only">Edit</span>
@@ -59,32 +57,22 @@
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
               <tr v-for="post in posts.data" :key="post.id">
-                <td class="px-6 py-4 whitespace-nowrap">
+                <td class="px-6 py-4 whitespace-wrap">
                   <div class="flex items-center">
-                    <!-- <div class="flex-shrink-0 w-10 h-10">
-                      <img class="w-10 h-10 rounded-full" :src="post.image" alt="" />
-                    </div> -->
+
                     <div class="ml-4">
                       <div class="text-sm font-medium text-gray-900">
                         {{ post.dimension }}
                       </div>
-                      <!-- <div class="text-sm text-gray-500">
-                        {{ post.type }}
-                      </div> -->
+
                     </div>
                   </div>
                 </td>
                  <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900">{{ post.type }}</div>
-                  <!-- <div class="text-sm text-gray-500">{{ post.department }}</div> -->
+                  <div class="text-sm text-gray-900 sm:hidden">{{ post.type }}</div>
+
                 </td>
-                <!--
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span class="inline-flex px-2 text-xs font-semibold leading-5 text-green-800 bg-green-100 rounded-full"> Active </span>
-                </td>
-                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
-                  {{ post.role }}
-                </td> -->
+
                 <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                   <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                 </td>
@@ -92,10 +80,7 @@
             </tbody>
           </table>
           <Pagination :items=posts />
-        </div>
-      </div>
 
-  </div>
 
     </div>
     </div>
@@ -129,6 +114,13 @@ import  debounce  from "lodash/debounce";
             const animal=props.animal
             const showLink='/animals/'+animal.data.id
 
+        function drop(){
+              if (confirm('Are you sure you want to drop this animal? The animal\'s post will remain intact :-)'))
+              {
+                   Inertia.delete(route('animals.destroy',animal.data.id));
+              }
+         }
+
         watch(searchKey,debounce(function(value){
                                                Inertia.get(showLink,{'search':value},{preserveState:true,preserveScroll:true})
                                                },300))
@@ -137,7 +129,7 @@ import  debounce  from "lodash/debounce";
                                 onSuccess: () => form.reset('name','description','species'),
                                 }));}
             return {
-                form,submit,searchKey,showLink
+                form,submit,searchKey,showLink,drop
            }
         }
     }
