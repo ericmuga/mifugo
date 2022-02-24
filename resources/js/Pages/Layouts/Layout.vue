@@ -85,6 +85,7 @@
                 ]"
                 icon="pi pi-sign-out"
                 label="Logout"
+                class="z-40"
                 @click="logout"
               />
 
