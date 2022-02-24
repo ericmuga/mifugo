@@ -88,8 +88,7 @@ class AnimalController extends Controller
         ///dd(new AnimalResource($animal));
         return inertia('Animal/Show',['animal'=>new AnimalResource(Animal::find($animal->id)),
                                        'posts'=>PostResource::collection($animal->posts()
-                                                                                ->when($request->input('search'),fn($q,$search)=>($q->where('title','like',$search.'%')
-                                                                                                                                    ->orWhere('dimension','like',$search.'%')
+                                                                                ->when($request->input('search'),fn($q,$search)=>($q->where('dimension','like',$search.'%')
                                                                                                                                     ->orWhere('type','like',$search.'%')
                                                                                                                                     ))
                                                                                 ->paginate(5)
