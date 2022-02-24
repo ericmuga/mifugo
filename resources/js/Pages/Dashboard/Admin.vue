@@ -5,12 +5,12 @@
       </div>
       <!--controls -->
 
-      <div class="flex items-end justify-end w-full space-x-4 rounded-md bg-slate-300-border-2">
+      <div class="flex justify-end rounded-md">
 
 
 
-      <span class="float-right place-items-center">
-          <div class="flex justify-between space-x-2 sm:flex-row">
+      <span class="float-right">
+          <div class="flex flex-col">
 
 
            <Link href="/animals/create">
@@ -19,7 +19,7 @@
                     label="Add"
                     severity="danger"
                     type="button"
-                    class="flex"
+                    class="object-scale-down"
                 />
          </Link>
                 <InputText
