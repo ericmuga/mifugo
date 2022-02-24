@@ -9,8 +9,8 @@
 
 
 
-      <span class="float-right">
-          <div class="sm:flex sm:flex-row md:flex md:flex-row">
+      <span class="">
+          <div class="flex flex-col items-center justify-center">
 
 
            <Link href="/animals/create">
@@ -19,12 +19,13 @@
                     label="Add"
                     severity="danger"
                     type="button"
-                    class="object-scale-down"
+                    class="block object-scale-down mb-2"
                 />
+
          </Link>
                 <InputText
-                    icon="pi pi-search"
-                    class="flex justify-end"
+
+                    class="block my-4"
                     placeholder="Search"
                     v-model="search"
                 /></div>

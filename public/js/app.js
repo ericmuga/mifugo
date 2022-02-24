@@ -21177,11 +21177,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "grid mx-5 my-10 border-2 rounded-lg shadow-md place-items-center sm:grid-cols-1 shadow-slate-400"
+  "class": "grid border-2 rounded-lg shadow-md place-items-center sm:grid-cols-1 shadow-slate-400"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex items-center w-full mx-5 my-6 text-center uppercase"
+  "class": "flex items-center w-full p-2 text-center uppercase"
 }, "Create Animal", -1
 /* HOISTED */
 );
@@ -21277,7 +21277,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Button");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex items-center\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-    "class": "p-5 m-4",
+    "class": "mb-3",
     onSubmit: _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $setup.submit && $setup.submit.apply($setup, arguments);
     }, ["prevent"]))
@@ -21891,10 +21891,10 @@ var _hoisted_1 = {
   "class": "flex justify-end rounded-md"
 };
 var _hoisted_2 = {
-  "class": "float-right"
+  "class": ""
 };
 var _hoisted_3 = {
-  "class": "sm:flex sm:flex-row md:flex md:flex-row"
+  "class": "flex flex-col items-center justify-center"
 };
 var _hoisted_4 = {
   "class": "grid w-full gap-3 my-4 lg:grid-cols-3 md:grid-cols-2"
@@ -21935,15 +21935,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         label: "Add",
         severity: "danger",
         type: "button",
-        "class": "object-scale-down"
+        "class": "block object-scale-down mb-2"
       })];
     }),
     _: 1
     /* STABLE */
 
   }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_InputText, {
-    icon: "pi pi-search",
-    "class": "flex justify-end",
+    "class": "block my-4",
     placeholder: "Search",
     modelValue: $setup.search,
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
@@ -22702,11 +22701,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "grid mx-5 my-10 border-2 rounded-lg shadow-md place-items-center sm:grid-cols-1 shadow-slate-400"
+  "class": "grid border-2 rounded-lg shadow-md place-items-center sm:grid-cols-1 shadow-slate-400"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "grid items-center w-full mx-5 my-6 text-center uppercase place-content-center"
+  "class": "grid items-center mb-5 text-center uppercase place-content-center"
 }, "Create Post", -1
 /* HOISTED */
 );
@@ -22719,7 +22718,8 @@ var _hoisted_4 = {
 };
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "title"
+  "for": "title",
+  "class": "w-full -ml-2 text-center"
 }, "Title", -1
 /* HOISTED */
 );
@@ -22731,7 +22731,7 @@ var _hoisted_6 = {
 };
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "my-2 text-slate-400"
+  "class": "my-4 text-slate-400"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr")], -1
 /* HOISTED */
 );
@@ -22744,7 +22744,8 @@ var _hoisted_9 = {
 };
 
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "dimension"
+  "for": "dimension",
+  "class": "w-full -ml-2 text-center"
 }, "Dimension", -1
 /* HOISTED */
 );
@@ -22756,7 +22757,7 @@ var _hoisted_11 = {
 };
 
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "my-2 text-slate-400"
+  "class": "my-4 text-slate-400"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr")], -1
 /* HOISTED */
 );
@@ -22774,19 +22775,19 @@ var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "my-2 text-slate-400"
+  "class": "my-4 text-slate-400"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr")], -1
 /* HOISTED */
 );
 
 var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "my-2 text-slate-400"
+  "class": "my-4 text-slate-400"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr")], -1
 /* HOISTED */
 );
 
 var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "my-2 text-slate-400"
+  "class": "my-4 text-slate-400"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr")], -1
 /* HOISTED */
 );
@@ -22794,7 +22795,7 @@ var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_18 = ["value"];
 
 var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "my-2 text-slate-400"
+  "class": "my-4 text-slate-400"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("hr")], -1
 /* HOISTED */
 );
@@ -22809,7 +22810,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Button");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex items-center\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-    "class": "p-5 m-4",
+    "class": "p-2 text-center",
     onSubmit: _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
       return $setup.submit && $setup.submit.apply($setup, arguments);
     }, ["prevent"]))
@@ -22844,9 +22845,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , ["modelValue", "options"])]), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     id: "e-textarea",
-    "class": "w-full",
-    row: "100",
-    cols: "100",
+    "class": "w-full border-2 border-slate-200",
+    row: "50",
+    cols: "50",
     placeholder: "Type the body here..",
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $setup.form.body = $event;
@@ -22855,9 +22856,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.body]]), _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("textarea", {
     id: "e-textarea",
-    "class": "w-full",
-    row: "100",
-    cols: "100",
+    "class": "w-full border-2 border-slate-200",
+    row: "50",
+    cols: "50",
     placeholder: "Type the footer here..",
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
       return $setup.form.footer = $event;

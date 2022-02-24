@@ -1,30 +1,30 @@
 <template>
-    <div class="grid mx-5 my-10 border-2 rounded-lg shadow-md place-items-center sm:grid-cols-1 shadow-slate-400">
+    <div class="grid border-2 rounded-lg shadow-md place-items-center sm:grid-cols-1 shadow-slate-400">
 
         <!-- <div class="flex items-center"> -->
 
-            <form class="p-5 m-4" @submit.prevent="submit">
-              <div class="grid items-center w-full mx-5 my-6 text-center uppercase place-content-center ">Create Post</div>
+            <form class="p-2 text-center" @submit.prevent="submit">
+              <div class="grid items-center mb-5 text-center uppercase place-content-center ">Create Post</div>
 
                <div class="field">
-                   <span class="p-float-label">
+                   <span class=" p-float-label">
                         <InputText  type="text" v-model="form.title" />
-                        <label for="title">Title</label>
+                        <label for="title" class="w-full -ml-2 text-center">Title</label>
                     </span>
                     <small v-if="errors.title" id="title-help" class="p-error">errors.title</small>
                </div>
 
-               <div class="my-2 text-slate-400"><hr></div>
+               <div class="my-4 text-slate-400"><hr></div>
 
                  <div class="field">
                    <span class="p-float-label">
                     <InputText  type="text" v-model="form.dimension" />
-                    <label for="dimension">Dimension</label>
+                    <label for="dimension"  class="w-full -ml-2 text-center">Dimension</label>
                    </span>
                    <small v-if="errors.dimension" id="title-help" class="p-error">errors.dimension</small>
                  </div>
 
-                 <div class="my-2 text-slate-400"><hr></div>
+                 <div class="my-4 text-slate-400"><hr></div>
                     <div class="p-inputgroup">
                         <span class="p-inputgroup-addon">
                             <i class="pi pi-key"></i>
@@ -39,34 +39,34 @@
                         />
                     </div>
 
-
-                  <div class="my-2 text-slate-400"><hr></div>
+                   <div class="my-4 text-slate-400"><hr></div>
 
                          <textarea
                             id="e-textarea"
-                            class="w-full"
-                            row="100"
-                            cols="100"
+                            class="w-full border-2 border-slate-200"
+                            row="50"
+                            cols="50"
+
                             placeholder="Type the body here.."
                         v-model="form.body"
                             >
                             </textarea>
-                  <div class="my-2 text-slate-400"><hr></div>
+                  <div class="my-4 text-slate-400"><hr></div>
                     <textarea
                             id="e-textarea"
-                            class="w-full"
-                            row="100"
-                            cols="100"
+                            class="w-full border-2 border-slate-200"
+                            row="50"
+                            cols="50"
                             placeholder="Type the footer here.."
                         v-model="form.footer"
                             >
                             </textarea>
-                  <div class="my-2 text-slate-400"><hr></div>
+                  <div class="my-4 text-slate-400"><hr></div>
                         <FileUpload mode="basic" type="file" @input="form.avatar = $event.target.files[0]"  />
                             <progress v-if="form.progress" :value="form.progress.percentage" max="100">
                             {{ form.progress.percentage }}%
                             </progress>
-                    <div class="my-2 text-slate-400"><hr></div>
+                    <div class="my-4 text-slate-400"><hr></div>
                         <Button
                         class="text-center item-center"
                         type="submit"

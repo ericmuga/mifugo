@@ -1,10 +1,10 @@
 <template>
-    <div class="grid mx-5 my-10 border-2 rounded-lg shadow-md place-items-center sm:grid-cols-1 shadow-slate-400">
+    <div class="grid border-2 rounded-lg shadow-md place-items-center sm:grid-cols-1 shadow-slate-400">
 
         <!-- <div class="flex items-center"> -->
 
-            <form class="p-5 m-4" @submit.prevent="submit">
-                <div class="flex items-center w-full mx-5 my-6 text-center uppercase ">Create Animal</div>
+            <form class="mb-3" @submit.prevent="submit">
+                <div class="flex items-center w-full p-2 text-center uppercase ">Create Animal</div>
                <div class="field">
                    <span class="p-float-label">
                     <InputText  type="text" v-model="form.name" />
