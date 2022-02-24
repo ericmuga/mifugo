@@ -3,12 +3,12 @@
        <Breadcrumbs :breadcrumbs="breadcrumbs"/>
     </div>
 
-    <div class="grid gap-2 md:grid-cols-2">
+    <div class="grid gap-2 md:grid-cols-1 bg-[url('/images/cow3.png')]">
 
 
-    <div class=" sm:invisible md:visible md:col-span-1 md:bg-[url('/images/cow3.png')] rounded-md sm:bg-teal-50 m-5 p-5 shadow-lg bg-cover  shadow-gray-400  md:border-2 md:border-teal-200 ">
+    <!-- <div class="p-5 m-5 bg-cover rounded-md shadow-lg sm:invisible md:visible md:col-span-1 md: sm:bg-teal-50 shadow-gray-400 md:border-2 md:border-teal-200">
 
-    </div>
+    </div> -->
      <div class="grid min-h-screen col-span-1 place-items-center sm:-mt-8 sm:col-span-1 ">
      <div class="p-4 border-2 rounded-lg border-sky-300 ">
          <div class="w-full p-2 mb-2 text-center uppercase bg-teal-400 rounded">
@@ -37,7 +37,7 @@
                     <span class="p-inputgroup-addon">
                         <i class="pi pi-envelope"></i>
                     </span>
-                    <InputText placeholder="Username" v-model="form.email" />
+                    <InputText placeholder="Email" v-model="form.email" />
                      <span v-if="errors.email"><p class="text-xs text-red-300">{{errors.email}}</p></span>
                 </div>
 

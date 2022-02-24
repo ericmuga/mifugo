@@ -10,7 +10,7 @@
 
 
       <span class="float-right">
-          <div class="flex flex-col">
+          <div class="sm:flex sm:flex-row md:flex md:flex-row">
 
 
            <Link href="/animals/create">
@@ -46,14 +46,7 @@
          <!--content -->
 
             <div v-for="animal in animals.data" :key="animal.id">
-                  <Link :href="`/animals/${animal.id}`"
 
-                           >
-                           <div class="justify-end float-right max-w-sm p-3 rounded-md shadow-sm shadow-slate-200 -ml-96 shadow-slate-400">
-
-                            <Button icon="pi pi-bookmark" class="p-button-rounded p-button-secondary" />
-                          </div>
-                          </Link>
 
 
 
@@ -62,6 +55,9 @@
                       <div class="flex p-5 border-2 border-gray-300 rounded-md shadow-slate-500 border-1">
 
                         <AnimalCard :animal="animal" />
+                        <Link :href="`/animals/${animal.id}`">
+                   <Button icon="pi pi-bookmark" class="justify-end float-right max-w-sm p-3 rounded-md shadow-sm p-button-rounded p-button-secondary shadow-slate-200 -ml-96 shadow-slate-400"/>
+                </Link>
                     </div>
             </div>
         </div>

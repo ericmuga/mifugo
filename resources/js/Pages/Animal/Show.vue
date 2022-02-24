@@ -9,7 +9,7 @@
      <div class="col-span-1 rounded-md shadow-lg shadow-slate-400">
 
 
-        <img class="" :src="animal.data.url" alt="Sunset in the mountains">
+        <img class="" :src="animal.data.url" alt="{{animal.data.description}}">
         <div class="px-6 py-4">
             <div class="mb-2 text-xl font-bold tracking-wide text-center uppercase">{{animal.data.name}}</div>
             <p class="text-base text-center text-gray-700">
@@ -39,6 +39,12 @@
     <!--animal Posts begin here -->
 
     <div class="object-scale-down col-span-1 p-3 mt-2 overflow-scroll rounded-md shadow-md shadow-slate-400">
+         <div>
+             <Link :href="createPost">
+               <Button type="button" icon="pi pi-plus" label="Add"></Button>
+             </Link>
+         </div>
+
          <div class="flex justify-end mb-1 ">
             <InputText v-model="searchKey"
             class="flex h-10 px-5 pr-5 mb-4 text-black rounded-md bg-slate-100"
@@ -113,6 +119,7 @@ import  debounce  from "lodash/debounce";
             let searchKey=ref(props.search)
             const animal=props.animal
             const showLink='/animals/'+animal.data.id
+            const createPost= route('posts.create')
 
         function drop(){
               if (confirm('Are you sure you want to drop this animal? The animal\'s post will remain intact :-)'))
@@ -129,7 +136,7 @@ import  debounce  from "lodash/debounce";
                                 onSuccess: () => form.reset('name','description','species'),
                                 }));}
             return {
-                form,submit,searchKey,showLink,drop
+                form,submit,searchKey,showLink,drop,createPost
            }
         }
     }

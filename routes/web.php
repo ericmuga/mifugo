@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\{FieldController,AuthController,UserController,DashboardController,AnimalController};
-use App\Models\{Animal, Field,User};
+use App\Http\Controllers\{FieldController,AuthController,UserController,DashboardController,AnimalController,PostController};
+use App\Models\{Animal, Field, Post, User};
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +52,14 @@ Route::middleware('auth')
                     'index'=>'Animals',
                     'create'=>'New Animal',
                     'show' =>fn(Animal $animal)=>$animal->name,
+                    'edit'=>'Edit'
+            ]);
+
+        Route::resource('posts', PostController::class)
+            ->breadcrumbs([
+                    'index'=>'Posts',
+                    'create'=>'New Post',
+                    'show' =>fn(Post $post)=>$post->title,
                     'edit'=>'Edit'
             ]);
 });
