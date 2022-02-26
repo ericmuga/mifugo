@@ -53,12 +53,27 @@
 
 
 
-                      <div class="flex p-5 border-2 border-gray-300 rounded-md shadow-slate-500 border-1">
+                      <div class="flex py-2 border-2 border-gray-300 rounded-md shadow-slate-500 border-1">
 
-                        <AnimalCard :animal="animal" />
-                        <Link :href="`/animals/${animal.id}`">
-                   <Button icon="pi pi-bookmark" class="justify-end float-right max-w-sm p-3 rounded-md shadow-sm p-button-rounded p-button-secondary shadow-slate-200 -ml-96 shadow-slate-400"/>
-                </Link>
+                        <AnimalCard :animal="animal" >
+                            <div class="mt-3 space-x-1">
+
+
+                             <Link :href="`/animals/${animal.id}`">
+                                <Button icon="pi pi-bookmark" class="p-button-rounded p-button-warning"/>
+                             </Link>
+                               <!-- <div class="flex"> -->
+                                    <Button icon="pi pi-times" class="p-button-rounded p-button-danger" @click="drop(animal.id)" />
+                               <!-- </div> -->
+
+                             <!-- <div class="flex"> -->
+                                 <Button icon="pi pi-pencil" class="p-button-rounded p-button-info" @click="drop(animal.id)" />
+                             <!-- </div> -->
+
+
+                            </div>
+                        </AnimalCard>
+
                     </div>
             </div>
         </div>
@@ -98,13 +113,18 @@ import debounce from 'lodash/debounce'
 
            const search = ref(props.search)
 
-
+            function drop(id){
+                 if (confirm ('Are you sure you want to drop this item?')){
+                        Inertia.delete(route('animal.destroy',id))
+                 }
+            }
            watch(search,debounce(function(value){
                                                Inertia.get(route('dashboard'),{'search':value},{preserveState:true})
                                                },300))
 
             return {
-                search
+                search,
+                drop
                 // breadcrumbs
                 // featureRef,
                 // featureState

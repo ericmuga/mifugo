@@ -20807,6 +20807,13 @@ __webpack_require__.r(__webpack_exports__);
     // const featureRef = ref(value);
     // const featureState = reactive({ property: 'value' });
     var search = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(props.search);
+
+    function drop(id) {
+      if (confirm('Are you sure you want to drop this item?')) {
+        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia["delete"](route('animal.destroy', id));
+      }
+    }
+
     (0,vue__WEBPACK_IMPORTED_MODULE_0__.watch)(search, lodash_debounce__WEBPACK_IMPORTED_MODULE_6___default()(function (value) {
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_5__.Inertia.get(route('dashboard'), {
         'search': value
@@ -20815,7 +20822,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     }, 300));
     return {
-      search: search // breadcrumbs
+      search: search,
+      drop: drop // breadcrumbs
       // featureRef,
       // featureState
 
@@ -21904,9 +21912,12 @@ var _hoisted_4 = {
   "class": "grid w-full gap-3 my-4 lg:grid-cols-3 md:grid-cols-2"
 };
 var _hoisted_5 = {
-  "class": "flex p-5 border-2 border-gray-300 rounded-md shadow-slate-500 border-1"
+  "class": "flex py-2 border-2 border-gray-300 rounded-md shadow-slate-500 border-1"
 };
 var _hoisted_6 = {
+  "class": "mt-3 space-x-1"
+};
+var _hoisted_7 = {
   "class": "w-full"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -21959,26 +21970,49 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: animal.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_AnimalCard, {
       animal: animal
-    }, null, 8
-    /* PROPS */
-    , ["animal"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-      href: "/animals/".concat(animal.id)
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
-          icon: "pi pi-bookmark",
-          "class": "justify-end float-right max-w-sm p-3 rounded-md shadow-sm p-button-rounded p-button-secondary shadow-slate-200 -ml-96 shadow-slate-400"
-        })];
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+          href: "/animals/".concat(animal.id)
+        }, {
+          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+              icon: "pi pi-bookmark",
+              "class": "p-button-rounded p-button-warning"
+            })];
+          }),
+          _: 2
+          /* DYNAMIC */
+
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+          icon: "pi pi-times",
+          "class": "p-button-rounded p-button-danger",
+          onClick: function onClick($event) {
+            return $setup.drop(animal.id);
+          }
+        }, null, 8
+        /* PROPS */
+        , ["onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex\"> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Button, {
+          icon: "pi pi-pencil",
+          "class": "p-button-rounded p-button-info",
+          onClick: function onClick($event) {
+            return $setup.drop(animal.id);
+          }
+        }, null, 8
+        /* PROPS */
+        , ["onClick"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </div> ")])];
       }),
       _: 2
       /* DYNAMIC */
 
     }, 1032
     /* PROPS, DYNAMIC_SLOTS */
-    , ["href"])])]);
+    , ["animal"])])]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination, {
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination, {
     items: $props.animals
   }, null, 8
   /* PROPS */
@@ -23229,46 +23263,46 @@ var _hoisted_4 = {
 };
 var _hoisted_5 = ["src"];
 var _hoisted_6 = {
-  "class": "w-full px-4 text-center"
-};
-var _hoisted_7 = {
-  "class": "flex justify-center"
-};
-var _hoisted_8 = {
-  "class": "p-3 mr-4 text-center"
-};
-
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Posts ");
-
-var _hoisted_10 = {
-  "class": "block text-xl font-bold tracking-wide uppercase text-blueGray-600"
-};
-var _hoisted_11 = {
   "class": "mt-12 text-center"
 };
-var _hoisted_12 = {
+var _hoisted_7 = {
   "class": "mb-2 text-xl font-semibold leading-normal text-blueGray-700"
 };
-var _hoisted_13 = {
+var _hoisted_8 = {
   "class": "mt-0 mb-2 text-sm font-bold leading-normal uppercase text-blueGray-400"
 };
 
-var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "mr-2 text-lg fas fa-map-marker-alt text-blueGray-400"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_15 = {
+var _hoisted_10 = {
   "class": "mt-10 mb-2 text-blueGray-600"
 };
 
-var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "mr-2 text-lg fas fa-briefcase text-blueGray-400"
 }, null, -1
 /* HOISTED */
 );
 
+var _hoisted_12 = {
+  "class": "w-full px-4 text-center"
+};
+var _hoisted_13 = {
+  "class": "flex justify-center"
+};
+var _hoisted_14 = {
+  "class": "p-3 mr-4 text-center"
+};
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Posts ");
+
+var _hoisted_16 = {
+  "class": "block text-xl font-bold tracking-wide uppercase text-blueGray-600"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div\n    class=\"relative flex flex-col w-full min-w-0 break-words bg-white rounded-lg shadow-xl\"\n  > "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     alt: "...",
@@ -23276,15 +23310,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "w-40 h-40 align-middle border-none rounded-full shadow-xl"
   }, null, 8
   /* PROPS */
-  , _hoisted_5)])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.posts_count), 1
+  , _hoisted_5)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.name), 1
   /* TEXT */
-  )])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.name), 1
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("Controls "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("controls "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.description), 1
   /* TEXT */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.description), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.species), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.species), 1
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.animal.posts_count), 1
   /* TEXT */
-  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"mb-2 text-blueGray-600\">\n          <i class=\"mr-2 text-lg fas fa-university text-blueGray-400\"></i>\n          University of Computer Science\n        </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"py-10 mt-10 text-center border-t border-blueGray-200\">\n        <div class=\"flex flex-wrap justify-center\">\n          <div class=\"w-full px-4 lg:w-9/12\">\n            <p class=\"mb-4 text-lg leading-relaxed text-blueGray-700\">\n              An artist of considerable range, Jenna the name taken by\n              Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and\n              records all of his own music, giving it a warm, intimate feel with\n              a solid groove structure. An artist of considerable range.\n            </p>\n            <a href=\"javascript:void(0);\" class=\"font-normal text-emerald-500\">\n              Show more\n            </a>\n          </div>\n        </div>\n      </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </div> ")], 2112
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"py-10 mt-10 text-center border-t border-blueGray-200\">\n        <div class=\"flex flex-wrap justify-center\">\n          <div class=\"w-full px-4 lg:w-9/12\">\n            <p class=\"mb-4 text-lg leading-relaxed text-blueGray-700\">\n              An artist of considerable range, Jenna the name taken by\n              Melbourne-raised, Brooklyn-based Nick Murphy writes, performs and\n              records all of his own music, giving it a warm, intimate feel with\n              a solid groove structure. An artist of considerable range.\n            </p>\n            <a href=\"javascript:void(0);\" class=\"font-normal text-emerald-500\">\n              Show more\n            </a>\n          </div>\n        </div>\n      </div> ")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </div> ")], 2112
   /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
   );
 }
