@@ -63,11 +63,13 @@
                                 <Button icon="pi pi-bookmark" class="p-button-rounded p-button-warning"/>
                              </Link>
                                <!-- <div class="flex"> -->
+                             <Link :href="`/animals/${animal.id}/edit`">
+                                 <Button icon="pi pi-pencil" class="p-button-rounded p-button-info"  />
+                             </Link>
                                     <Button icon="pi pi-times" class="p-button-rounded p-button-danger" @click="drop(animal.id)" />
                                <!-- </div> -->
 
                              <!-- <div class="flex"> -->
-                                 <Button icon="pi pi-pencil" class="p-button-rounded p-button-info" @click="drop(animal.id)" />
                              <!-- </div> -->
 
 
@@ -115,7 +117,7 @@ import debounce from 'lodash/debounce'
 
             function drop(id){
                  if (confirm ('Are you sure you want to drop this item?')){
-                        Inertia.delete(route('animal.destroy',id))
+                        Inertia.delete(route('animals.destroy',id))
                  }
             }
            watch(search,debounce(function(value){
