@@ -10,13 +10,13 @@
 
 
       <span class="">
-          <div class="flex flex-col items-center justify-center">
+          <div class="flex flex-col justify-center place-content-center">
 
 
            <Link href="/animals/create">
                 <Button
-                    icon="pi pi-user-plus"
-                    label="Add"
+
+                    label="Create Animal"
                     severity="danger"
                     type="button"
                     class="block object-scale-down mb-2"

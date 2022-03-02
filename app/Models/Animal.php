@@ -16,5 +16,10 @@ class Animal extends Model
        return $this->belongsToMany(Post::class);
    }
 
+   public function dimensions()
+   {
+       return $this->belongsToMany(Dimension::class);
+   }
+
 
 }

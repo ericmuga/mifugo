@@ -1,9 +1,10 @@
 <?php
 
+use App\Models\Dimension;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\User as Author;
+// use App\Models\User as Author;
 
 class CreatePostsTable extends Migration
 {
@@ -21,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->longText('body')->nullable();
             $table->text('footer')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->string('dimension');
+            $table->foreignIdFor(Dimension::class);
             $table->foreign('user_id')
                   ->references('id')
                   ->on('users')

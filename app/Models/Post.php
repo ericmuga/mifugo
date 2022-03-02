@@ -11,7 +11,7 @@ class Post extends Model
     use HasFactory;
 
 
-    protected $fillable=['title','type','body','footer','dimension','user_id'];
+    protected $fillable=['title','type','body','footer','user_id'];
     public function post()
     {
         return $this->belongsToMany(Animal::class);
@@ -36,5 +36,8 @@ class Post extends Model
        return $this->belongsToMany(Animal::class);
    }
 
-
+   public function dimension()
+   {
+       return $this->belongsTo(Dimension::class);
+   }
 }

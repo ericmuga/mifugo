@@ -3,7 +3,8 @@
        <Breadcrumbs :breadcrumbs="breadcrumbs"/>
     </div>
 
-    <div class="grid gap-2 md:grid-cols-1 bg-[url('/images/cow3.png')]">
+    <!-- <div class="grid gap-2 md:grid-cols-1 bg-[url('/images/cow3.png')]"> -->
+    <div class="grid gap-2 md:grid-cols-1 ">
 
 
     <!-- <div class="p-5 m-5 bg-cover rounded-md shadow-lg sm:invisible md:visible md:col-span-1 md: sm:bg-teal-50 shadow-gray-400 md:border-2 md:border-teal-200">

@@ -17,6 +17,7 @@ import Breadcrumbs from '@/components/Breadcrumbs.vue'
 import FileUpload from 'primevue/fileupload';
 import Avatar from 'primevue/avatar';
 import AvatarGroup from 'primevue/avatargroup';
+import MultiSelect from 'primevue/multiselect';
 import Pagination from '@/components/Pagination.vue'
 
 import route from "ziggy";
@@ -49,6 +50,7 @@ createInertiaApp({
             .component('Breadcrumbs',Breadcrumbs)
             .component('Pagination',Pagination)
             .component('FileUpload',FileUpload)
+            .component('MultiSelect',MultiSelect)
             .mixin({ methods: { route: (name, params, absolute) => route(name, params, absolute, Ziggy) } })
             .mount(el);
     },

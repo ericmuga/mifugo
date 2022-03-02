@@ -23,7 +23,8 @@ class AnimalResource extends JsonResource
                 'species'=>$this->species,
                 'url'=>$this->url,
                 'id'=>$this->id,
-                'posts_count'=>$this->posts_count
+                'posts_count'=>$this->posts_count,
+                'dimensions_count'=>$this->dimensions_count
               ];
     }
 }

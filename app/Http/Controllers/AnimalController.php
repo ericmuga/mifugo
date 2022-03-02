@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Animal,Post};
-use App\Http\Resources\{AnimalResource,PostResource};
+use App\Models\{Animal, Dimension, Post};
+use App\Http\Resources\{AnimalResource, DimensionResource, PostResource};
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -28,7 +28,9 @@ class AnimalController extends Controller
      */
     public function create()
     {
-        return inertia('Animal/Create');
+        //send along dimensions
+        return inertia('Animal/Create',['dimensions'=>Dimension::all('name','id')]);
+
     }
 
     /**
@@ -39,7 +41,7 @@ class AnimalController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        // dd($request->all());
 
         $request->validate([
 
@@ -57,12 +59,14 @@ class AnimalController extends Controller
 
        }
 
-        Animal::create([
+        $animal=Animal::create([
                           'name'=>$request->name,
                           'description'=>$request->description,
                           'species'=>$request->has('species')?$request->species:'',
-                          'url'=>url('/images//'.$path)
+                          'url'=>($request->hasFile('avatar'))?url('/images//'.$path):''
            ]);
+         $animal->dimensions()->attach($request->dimension_ids);
+
          return redirect(route('dashboard'))->with('message','Success');
     }
 
