@@ -19,7 +19,7 @@ class DashboardController extends Controller
         //animal count order by highest post
         $animals=AnimalResource::collection(Animal::query()
                                                     ->when($request->input('search'),fn($query,$search)=>($query->where('name','like',$search.'%')))
-                                                    ->withCount('posts')
+                                                    ->withCount('posts','dimensions')
                                                     ->orderBy('posts_count','desc')
                                                     ->paginate(9)
                                                     ->withQueryString());

@@ -13,22 +13,23 @@
           <div class="flex flex-col justify-center place-content-center">
 
 
-           <Link href="/animals/create">
-                <Button
+               <Link href="/animals/create">
+                        <Button
 
-                    label="Create Animal"
-                    severity="danger"
-                    type="button"
-                    class="block object-scale-down mb-2"
-                />
+                            label="Create Animal"
+                            severity="danger"
+                            type="button"
+                            class="block object-scale-down mb-2"
+                        />
 
-         </Link>
+                </Link>
                 <InputText
 
                     class="block my-4"
                     placeholder="Search"
                     v-model="search"
-                /></div>
+                />
+                </div>
             </span>
 
       </div>
@@ -47,36 +48,18 @@
          <!--content -->
 
             <div v-for="animal in animals.data" :key="animal.id">
-
-
-
-
-
-
-                      <div class="flex py-2 border-2 border-gray-300 rounded-md shadow-slate-500 border-1">
-
-                        <AnimalCard :animal="animal" >
-                            <div class="mt-3 space-x-1">
-
-
-                             <Link :href="`/animals/${animal.id}`">
-                                <Button icon="pi pi-bookmark" class="p-button-rounded p-button-warning"/>
-                             </Link>
-                               <!-- <div class="flex"> -->
-                             <Link :href="`/animals/${animal.id}/edit`">
-                                 <Button icon="pi pi-pencil" class="p-button-rounded p-button-info"  />
-                             </Link>
-                                    <Button icon="pi pi-times" class="p-button-rounded p-button-danger" @click="drop(animal.id)" />
-                               <!-- </div> -->
-
-                             <!-- <div class="flex"> -->
-                             <!-- </div> -->
-
-
-                            </div>
-                        </AnimalCard>
-
+                <AnimalCard :animal="animal" >
+                    <div class="mt-3 space-x-1">
+                        <Link :href="`/animals/${animal.id}`">
+                        <Button icon="pi pi-bookmark" class="p-button-rounded p-button-warning"/>
+                        </Link>
+                         <Link :href="`/animals/${animal.id}/edit`">
+                            <Button icon="pi pi-pencil" class="p-button-rounded p-button-info"  />
+                        </Link>
+                            <Button icon="pi pi-times" class="p-button-rounded p-button-danger" @click="drop(animal.id)" />
                     </div>
+                </AnimalCard>
+
             </div>
         </div>
 

@@ -6,25 +6,32 @@
           </Link>
       </div>
 
-     <div class="col-span-1 rounded-md shadow-lg shadow-slate-400">
+     <div class="col-span-1 px-3 rounded-md shadow-lg shadow-slate-400">
 
 
-        <img class="" :src="animal.data.url" alt="{{animal.data.description}}">
+        <img class="" :src="animal.data.url" alt="">
         <div class="px-6 py-4">
-            <div class="mb-2 text-xl font-bold tracking-wide text-center uppercase">{{animal.data.name}}</div>
-            <p class="text-base text-center text-gray-700">
-             {{animal.data.description}}
-           </p>
-            <p class="text-base text-gray-700">
-             {{animal.data.posts_count}}
-           </p>
+            <div class="mb-2 text-xl font-bold tracking-wide text-center uppercase">{{animal.data.name}}
+
+                <p class="text-base text-center text-gray-700">
+                    {{animal.data.description}}
+                </p>
+
+                    <p>Posts</p>
+                    <p class="text-base text-gray-700">
+
+                    {{animal.data.posts_count}}
+                </p>
+
+            </div>
+
 
         </div>
 
         <div class="px-6 pt-4 pb-2">
-            <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">#photography</span>
+            <!-- <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">#photography</span>
             <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">#travel</span>
-            <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">#winter</span>
+            <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">#winter</span> -->
         </div>
         <div class="flex items-center justify-center mb-5 space-x-5 ">
         <Link :href="`${animal.data.id}/edit`">
