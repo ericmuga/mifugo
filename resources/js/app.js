@@ -19,7 +19,7 @@ import Avatar from 'primevue/avatar';
 import AvatarGroup from 'primevue/avatargroup';
 import MultiSelect from 'primevue/multiselect';
 import Pagination from '@/components/Pagination.vue'
-
+import SpacedRule from '@/components/SpacedRule'
 import route from "ziggy";
 import ToastService from 'primevue/toastservice';
 import {  Ziggy } from './ziggy';
@@ -49,6 +49,7 @@ createInertiaApp({
             .component('Toast',Toast)
             .component('Breadcrumbs',Breadcrumbs)
             .component('Pagination',Pagination)
+            .component('SpacedRule',SpacedRule)
             .component('FileUpload',FileUpload)
             .component('MultiSelect',MultiSelect)
             .mixin({ methods: { route: (name, params, absolute) => route(name, params, absolute, Ziggy) } })

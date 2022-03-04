@@ -12,9 +12,7 @@
                 </span>
                 <small v-if="errors.name" id="name-help" class="p-error">{{errors.name}}</small>
                </div>
-                <div class="flex flex-shrink w-full my-3">
-                    <hr>
-                </div>
+               <SpacedRule/>
                  <div class="field">
                    <span class="p-float-label">
                     <InputText  type="text" v-model="form.description" />
@@ -22,26 +20,25 @@
                 </span>
                 <small v-if="errors.description" id="name-help" class="p-error">{{errors.description}}</small>
                </div>
-               <div class="flex flex-shrink w-full my-3">
-                    <hr>
-                </div>
+
+
+                <SpacedRule/>
+                 <MultiSelect v-model="di" :options="dimensions" optionLabel="name" optionValue="id"  class=" max-h-28" placeholder="Select Dimensions" filter="true" />
+               <SpacedRule/>
+
                  <div class="field">
                    <span class="p-float-label">
                     <InputText  type="text" v-model="form.species" />
                     <label for="species">Species</label>
                 </span>
                 <small v-if="errors.species" id="name-help" class="p-error">{{errors.species}}</small>
-                <div class="flex flex-shrink w-full my-3">
-                    <hr>
-                </div>
+                <SpacedRule/>
                  <FileUpload mode="basic" type="file" @input="form.avatar = $event.target.files[0]"  />
 
                     <progress v-if="form.progress" :value="form.progress.percentage" max="100">
                     {{ form.progress.percentage }}%
                     </progress>
-                <div class="flex flex-shrink w-full my-3">
-                    <hr>
-                </div>
+               <SpacedRule/>
                 <Button
                  class="text-center item-center"
                  type="submit"
@@ -65,17 +62,19 @@ import { Inertia } from '@inertiajs/inertia';
         props:{
         errors:Object,
         animal:Object,
+        dimensions:Object,
        },
 
        layout:Layout,
 
         setup(props, context) {
             // let animal=ref(props.animal)
-
+            const di=ref()
             const form=useForm({name:props.animal.data.name,
                                 description:props.animal.data.description,
                                 species:props.animal.data.species,
-                                avatar:props.animal.data.url}) ;
+                                avatar:props.animal.data.url,
+                                dimension_ids:di}) ;
 
             function submit(){
 
@@ -88,7 +87,7 @@ import { Inertia } from '@inertiajs/inertia';
                      avatar:form.avatar
                      ,_method:'put'})}
             return {
-                form,submit,
+                form,submit,di
            }
         }
     }

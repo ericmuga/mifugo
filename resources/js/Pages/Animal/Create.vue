@@ -59,7 +59,6 @@
     import { ref, reactive, watch } from 'vue';
     import { useForm } from '@inertiajs/inertia-vue3'
     import Layout from '@/Pages/Layouts/Layout'
-    import SpacedRule from '@/components/SpacedRule'
     export default {
 
         props:{
@@ -67,9 +66,6 @@
         dimensions:Object,
        },
 
-       components:{
-           SpacedRule,
-       },
 
        layout:Layout,
 
@@ -77,7 +73,7 @@
             const di=ref()
             const form=useForm({name:null,description:null,species:null,avatar:null,dimension_ids:di}) ;
 
-       watch(di)
+      // watch(di)
 
             let dimensions=ref(props.dimensions)
 

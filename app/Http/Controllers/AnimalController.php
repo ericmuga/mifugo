@@ -100,7 +100,7 @@ class AnimalController extends Controller
      */
     public function edit(Animal $animal)
     {
-        return inertia('Animal/Edit',['animal'=>new AnimalResource($animal)]);
+        return inertia('Animal/Edit',['animal'=>new AnimalResource($animal) ,'dimensions'=>Dimension::all('name','id') ]);
     }
 
     /**
