@@ -54,6 +54,9 @@ Route::middleware('auth')
                     'show' =>fn(Animal $animal)=>$animal->name,
                     'edit'=>'Edit'
             ]);
+        Route::get('animals/{animal}/dimensions/{dimension}/posts/create',[AnimalController::class,'dimensionPostCreate'])
+             ->name('animal.dimension.post.create')
+             ->breadcrumb('Animal/Post/Create');
 
         Route::resource('posts', PostController::class)
             ->breadcrumbs([
@@ -62,5 +65,6 @@ Route::middleware('auth')
                     'show' =>fn(Post $post)=>$post->title,
                     'edit'=>'Edit'
             ]);
+
 });
 

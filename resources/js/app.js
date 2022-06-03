@@ -12,6 +12,9 @@ import { InertiaProgress } from '@inertiajs/progress'
  import SelectButton from 'primevue/selectbutton';                        //icons
  import Dropdown from 'primevue/dropdown';
  import Checkbox from 'primevue/checkbox';
+//  import Accordion from 'primevue/accordion';
+//  import AccordionTab from 'primevue/accordiontab';
+
 //  import Breadcrumb from 'primevue/breadcrumb';\
 import Breadcrumbs from '@/components/Breadcrumbs.vue'
 import FileUpload from 'primevue/fileupload';
@@ -51,6 +54,8 @@ createInertiaApp({
             .component('Pagination',Pagination)
             .component('SpacedRule',SpacedRule)
             .component('FileUpload',FileUpload)
+            // .component('Accordion',Accordion)
+            // .component('AccordionTab',AccordionTab)
             .component('MultiSelect',MultiSelect)
             .mixin({ methods: { route: (name, params, absolute) => route(name, params, absolute, Ziggy) } })
             .mount(el);

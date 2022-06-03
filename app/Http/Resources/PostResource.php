@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Medium;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostResource extends JsonResource
@@ -17,7 +18,10 @@ class PostResource extends JsonResource
         return [ 'title'=>$this->title,
                   'id'=>$this->id,
                   'type'=>$this->type,
-                  'dimension'=>$this->dimension
+                  'dimension'=>$this->dimension->name,
+                  'animal'=>$this->animal->name,
+                  'last_updated'=>$this->updated_at->diffForHumans(),
+                  'media'=>$this->media()
 
 
                ];

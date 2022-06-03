@@ -11,10 +11,11 @@ class Post extends Model
     use HasFactory;
 
 
-    protected $fillable=['title','type','body','footer','user_id'];
-    public function post()
+    protected $fillable=['title','type','body','footer','user_id','dimension_id','animal_id'];
+
+    public function animal()
     {
-        return $this->belongsToMany(Animal::class);
+        return $this->belongsTo(Animal::class);
     }
 
     public function media()
@@ -26,15 +27,13 @@ class Post extends Model
    {
        return $this->user();
    }
+
+
    public function user()
    {
        return $this->belongsTo(User::class);
    }
 
-   public function animals()
-   {
-       return $this->belongsToMany(Animal::class);
-   }
 
    public function dimension()
    {

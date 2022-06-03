@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Animal;
 use App\Models\Dimension;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -21,13 +23,9 @@ class CreatePostsTable extends Migration
             $table->enum('type',['video','photo']);
             $table->longText('body')->nullable();
             $table->text('footer')->nullable();
-            $table->unsignedBigInteger('user_id');
             $table->foreignIdFor(Dimension::class);
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade')
-                  ->onUpdate('cascade');
+            $table->foreignIdFor(Animal::class);
+            $table->foreignIdFor(User::class);
             $table->timestamps();
         });
     }

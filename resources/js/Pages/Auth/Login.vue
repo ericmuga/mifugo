@@ -52,6 +52,7 @@
 import { ref, reactive } from 'vue';
 import { useForm } from '@inertiajs/inertia-vue3'
     export default {
+      
       props:{
           errors:Object
       },
@@ -64,14 +65,14 @@ import { useForm } from '@inertiajs/inertia-vue3'
                 remember:false,
             })
 
-            const errors=props.errors;
+            // const errors=props.errors;
 
              function submit()
              {
                form.post(route('login.store'))
              }
             return {
-                form,errors,submit
+                form,submit
             }
         }
     }

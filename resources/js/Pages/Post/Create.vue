@@ -1,8 +1,15 @@
 <template>
-    <div class="grid border-2 rounded-lg shadow-md place-items-center sm:grid-cols-1 shadow-slate-400">
+    <div class="grid border-2 rounded-lg shadow-md place-items-center sm:grid-cols-1 md:grid-cols-3 shadow-slate-400">
 
         <!-- <div class="flex items-center"> -->
 
+            <div class="col-span-1 my-5 place-items-center">
+                 <Link :href="`/animals/${animal.data.id}`" class="flex justify-center">
+                    <Button icon=" pi pi-backward" label="Back to Animal" class="p-button-outlined p-button-info"/>
+                </Link>
+
+            </div>
+        <div class="col-span-1">
             <form class="p-2 text-center" @submit.prevent="submit">
               <div class="grid items-center mb-5 text-center uppercase place-content-center ">Create Post</div>
 
@@ -13,19 +20,21 @@
                     </span>
                     <small v-if="errors.title" id="title-help" class="p-error">errors.title</small>
                </div>
+               <SpacedRule/>
 
-               <div class="my-4 text-slate-400"><hr></div>
+               <!-- <div class="my-4 text-slate-400"><hr></div> -->
 
-                 <div class="field">
+                 <!-- <div class="field">
                    <span class="p-float-label">
                     <InputText  type="text" v-model="form.dimension" />
                     <label for="dimension"  class="w-full -ml-2 text-center">Dimension</label>
                    </span>
                    <small v-if="errors.dimension" id="title-help" class="p-error">errors.dimension</small>
-                 </div>
-
-                 <div class="my-4 text-slate-400"><hr></div>
-                    <div class="p-inputgroup">
+                 </div> -->
+                 <!-- Dimension: {{dimension.data.name}} -->
+                 Animal: {{animal.data.name}}
+                 <SpacedRule/>
+                    <!-- <div class="p-inputgroup">
                         <span class="p-inputgroup-addon">
                             <i class="pi pi-key"></i>
                         </span>
@@ -37,14 +46,14 @@
                                 placeholder="Select an animal"
                                 :showClear="true"
                         />
-                    </div>
-
-                   <div class="my-4 text-slate-400"><hr></div>
+                    </div> -->
+                  Dimension: {{dimension.data.name}}
+                   <SpacedRule/>
 
                          <textarea
                             id="e-textarea"
                             class="w-full border-2 border-slate-200"
-                            rows="20"
+                            rows="5"
                             cols="50"
 
                             placeholder="Type the body here.."
@@ -55,7 +64,7 @@
                     <textarea
                             id="e-textarea"
                             class="w-full border-2 border-slate-200"
-                            rows="5"
+                            rows="3"
                             cols="50"
                             placeholder="Type the footer here.."
                         v-model="form.footer"
@@ -85,7 +94,10 @@
                         />
                     <div class="my-4 text-slate-400"><hr></div>
             </form>
-        <!-- </div> -->
+        </div>
+        <div class="col-span-1">
+
+        </div>
 
     </div>
 </template>
@@ -101,7 +113,9 @@ import { Inertia } from '@inertiajs/inertia'
 
         props:{
         errors:Object,
-        animals:Object,
+        // animals:Object,
+        animal:Object,
+        dimension:Object,
         },
 
        layout:Layout,
@@ -110,8 +124,8 @@ import { Inertia } from '@inertiajs/inertia'
             //   const user = computed(() => usePage().props.value.auth.user)
             const form=reactive({
                                 title:null,
-                                dimension:null,
-                                animal_id:null,
+                                dimension_id:props.dimension.data.id,
+                                animal_id:props.animal.data.id,
                                 avatar:null,
                                 body:'',
                                 footer:'',

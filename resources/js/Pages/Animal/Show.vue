@@ -1,112 +1,80 @@
 <template>
-    <div class="grid flex-col gap-3 place-items-center sm:grid-cols-1 md:grid-cols-3 ">
-      <div class="flex justify-center col-span-1 mb-2 ">
-          <Link href="/dashboard">
+    <div class="grid flex-col gap-5 sm:grid-cols-1 md:grid-cols-2 ">
+
+
+<div class="grid justify-center w-full col-span-1 my-4">
+         <!--content -->
+          <Link href="/dashboard" class="flex justify-center">
              <Button icon=" pi pi-backward" label="All Animals" class="p-button-outlined p-button-info"/>
           </Link>
-      </div>
+            <!-- <div v-for="animal in animals.data" :key="animal.id"> -->
+                <AnimalCard :animal="animal.data" >
+                    <div class="mt-3 space-x-1">
+                        <Link :href="`/animals/${animal.data.id}`">
+                        <Button icon="pi pi-bookmark" class="p-button-rounded p-button-warning"/>
+                        </Link>
+                         <Link :href="`/animals/${animal.data.id}/edit`">
+                            <Button icon="pi pi-pencil" class="p-button-rounded p-button-info"  />
+                        </Link>
+                            <Button icon="pi pi-times" class="p-button-rounded p-button-danger" @click="drop(animal.id)" />
+                    </div>
+                </AnimalCard>
 
-     <div class="col-span-1 px-3 rounded-md shadow-lg shadow-slate-400">
-
-
-        <img class="" :src="animal.data.url" alt="">
-        <div class="px-6 py-4">
-            <div class="mb-2 text-xl font-bold tracking-wide text-center uppercase">{{animal.data.name}}
-
-                <p class="text-base text-center text-gray-700">
-                    {{animal.data.description}}
-                </p>
-
-                    <p>Posts</p>
-                    <p class="text-base text-gray-700">
-
-                    {{animal.data.posts_count}}
-                </p>
-
-            </div>
-
-
+            <!-- </div> -->
         </div>
+    <div  v-if="animal.data.dimensions_count>0" class="flex flex-col w-full col-span-1 p-5 mb-4 rounded-lg shadow-sm shadow-slate-300">
+<div class="flex justify-center w-full py-4 mb-3 text-center bg-gray-300 rounded-lg">Animal Posts</div>
 
-        <div class="px-6 pt-4 pb-2">
-            <!-- <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">#photography</span>
-            <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">#travel</span>
-            <span class="inline-block px-3 py-1 mb-2 mr-2 text-sm font-semibold text-gray-700 bg-gray-200 rounded-full">#winter</span> -->
-        </div>
-        <div class="flex items-center justify-center mb-5 space-x-5 ">
-        <Link :href="`${animal.data.id}/edit`">
-           <Button icon="pi pi-pencil" class="p-button-rounded" />
-        </Link>
-        <Button @click="drop()" icon="pi pi-times" class="p-button-rounded p-button-danger" />
+        <div class="flex flex-col my-4">
+            <div v-for="dimension in dimensionDetails" :key="dimension.id" class="flex">
 
-        </div>
+             <Accordion class="flex">
+                   <AccordionTab class="w-full">
+                    <template #header>
+                        <i class="pi pi-calendar"></i>
+                        <span>{{dimension.name}}</span>
+                    </template>
+                    <div class="flex grid w-full place-items-center sm:grid-cols-1 md:grid-cols-2 ">
+                            <Link
+                            class="flex "
+                            :href="`${animal.data.id}/dimensions/${dimension.id}/posts/create`"
+                            >
+                                <Button  label="Add Post"></Button>
+                            </Link>
+                            <SpacedRule/>
 
-    </div>
-
-    <!--animal Posts begin here -->
-
-    <div class="object-scale-down col-span-1 p-3 mt-2 overflow-scroll rounded-md shadow-md shadow-slate-400">
-         <div>
-             <Link :href="createPost">
-               <Button type="button" icon="pi pi-plus" label="Add"></Button>
-             </Link>
-         </div>
-
-         <div class="flex justify-end mb-1 ">
-            <InputText v-model="searchKey"
-            class="flex h-10 px-5 pr-5 mb-4 text-black rounded-md bg-slate-100"
-            placeholder="Search" />
-        </div>
-          <table class="">
-            <thead class="bg-gray-50">
-              <tr>
-                <th scope="col" class="text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Dimension</th>
-                <th scope="col" class="text-xs font-medium tracking-wider text-left text-gray-500 uppercase sm:hidden">type</th>
-                <th scope="col" class="text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Actions</th>
-                <th scope="col" class="relative">
-                  <span class="sr-only">Edit</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="post in posts.data" :key="post.id">
-                <td class="px-6 py-4 whitespace-wrap">
-                  <div class="flex items-center">
-
-                    <div class="ml-4">
-                      <div class="text-sm font-medium text-gray-900">
-                        {{ post.dimension }}
-                      </div>
+                             <div v-if="dimensionPosts(dimension.name).length>0">
+                                 <div v-for="post in dimensionPosts(dimension.name)" :key="post.id">
+                                  <PostCard :post=post />
+                            </div>
+                            </div>
 
                     </div>
-                  </div>
-                </td>
-                 <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="text-sm text-gray-900 sm:hidden">{{ post.type }}</div>
+                </AccordionTab>
+            </Accordion>
 
-                </td>
+        </div>
 
-                <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                  <a href="#" class="text-indigo-600 hover:text-indigo-900">Explore</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <Pagination :items=posts />
 
+        </div>
 
     </div>
+
     </div>
 </template>
 
 <script>
-    import { ref, reactive,watch, computed } from 'vue';
+    import { ref, reactive,watch, computed, onMounted } from 'vue';
     import { useForm } from '@inertiajs/inertia-vue3'
     import Layout from '@/Pages/Layouts/Layout'
     import AnimalCard from '@/components/AnimalCard'
+    import PostCard from '@/components/PostCard'
+    import Accordion from 'primevue/accordion';
+    import AccordionTab from 'primevue/accordiontab';
 
 import { Inertia } from '@inertiajs/inertia';
 import  debounce  from "lodash/debounce";
+import SpacedRule from '../../components/SpacedRule.vue';
     export default {
 
         props:{
@@ -118,15 +86,29 @@ import  debounce  from "lodash/debounce";
 
        layout:Layout,
        components:{
-           AnimalCard
+           AnimalCard,
+           PostCard,
+           Accordion,
+           AccordionTab,
+              SpacedRule
        },
 
         setup(props, context) {
-            const form=useForm({name:null,description:null,species:null,avatar:null}) ;
+
+            //onMounted(()=>{console.log(animal.data.dimensions.dimensions[0].name)})
+
+            const dimensionDetails=props.animal.data.dimensions.dimensions;
+              onMounted(()=>{console.log(dimensionDetails)})
+           const form=useForm({name:null,description:null,species:null,avatar:null}) ;
             let searchKey=ref(props.search)
             const animal=props.animal
             const showLink='/animals/'+animal.data.id
             const createPost= route('posts.create')
+
+            function dimensionPosts(id){
+               //let posts=props.posts
+               return Object.values(props.posts.data).filter((el)=>el.dimension===id)
+            }
 
         function drop(){
               if (confirm('Are you sure you want to drop this animal? The animal\'s post will remain intact :-)'))
@@ -143,7 +125,7 @@ import  debounce  from "lodash/debounce";
                                 onSuccess: () => form.reset('name','description','species'),
                                 }));}
             return {
-                form,submit,searchKey,showLink,drop,createPost
+                form,submit,searchKey,showLink,drop,createPost,dimensionDetails,dimensionPosts
            }
         }
     }

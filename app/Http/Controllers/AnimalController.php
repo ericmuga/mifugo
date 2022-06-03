@@ -79,16 +79,26 @@ class AnimalController extends Controller
     public function show(Animal $animal, Request $request)
     {
         //
-        //   dd('here');
+        // dd('here');
 
         ///dd(new AnimalResource($animal));
+
+        //dd($animal->withCount('dimensions')->get());
+
+        // dd($animal->load('posts')->posts()->paginate(5));
         return inertia('Animal/Show',['animal'=>new AnimalResource($animal),
-                                       'posts'=>PostResource::collection($animal->posts()
-                                                                                ->when($request->input('search'),fn($q,$search)=>($q->where('dimension','like',$search.'%')
-                                                                                                                                    ->orWhere('type','like',$search.'%')
-                                                                                                                                    ))
-                                                                                ->paginate(5)
-                                                                                ->withQueryString()),
+                                    //    'posts'=>PostResource::collection(Post::where('animal_id',$animal->id)),
+
+                           'posts'=>Post::where('animal_id',$animal->id)
+                                                            ->when($request->input('search'),
+                                                                                fn($q,$search)=>
+                                                                                            ($q->where('dimension_id','like',$search.'%')
+                                                                                                ->orWhere('type','like',$search.'%')
+                                                                                                )
+                                                                  )
+                                                            ->paginate(5)
+                                                            ->withQueryString()
+
                                      ]);
     }
 
@@ -113,6 +123,7 @@ class AnimalController extends Controller
     public function update(Request $request, Animal $animal)
     {
         //   dd($request->all());
+        $path=null;
          $request->validate([
 
                      'name'=>['required','unique:animals,name,'.$animal->id],
@@ -125,16 +136,24 @@ class AnimalController extends Controller
 
            $path = $request->file('avatar')
                            ->store('',['disk'=>'public_uploads']);
-
-
-       }
-
-        $animal->update([
-                          'name'=>$request->name,
-                          'description'=>$request->description,
-                          'species'=>$request->has('species')?$request->species:'',
-                          'url'=>url('/images//'.$path)
+           }
+        if ($path){
+                        $animal->update([
+                                        'name'=>$request->name,
+                                        'description'=>$request->description,
+                                        'species'=>$request->has('species')?$request->species:'',
+                                        'url'=>$path??url('/images//'.$path)
+                        ]);
+            }
+           else{
+            $animal->update([
+                'name'=>$request->name,
+                'description'=>$request->description,
+                'species'=>$request->has('species')?$request->species:'',
+                // 'url'=>$path??url('/images//'.$path)
            ]);
+
+           }
          return redirect(route('animals.show',$animal->id))->with('message','Success');
     }
 
@@ -144,7 +163,18 @@ class AnimalController extends Controller
      * @param  \App\Models\Animal  $animal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Animal $animal)
+
+     public function dimensionPostCreate(Request $request, Animal $animal, Dimension $dimension)
+     {
+
+        return inertia('Post/Create',['animal'=> new AnimalResource($animal),
+                                      'dimension'=> new DimensionResource($dimension)   ]);
+
+        //return the route to create an animal, dimension specific post
+
+     }
+
+     public function destroy(Animal $animal)
     {
        $animal->posts()->detach();
        $animal->delete();

@@ -5,12 +5,12 @@
       </div>
       <!--controls -->
 
-      <div class="flex justify-end rounded-md">
+      <div class="flex justify-center rounded-md">
 
 
 
       <span class="">
-          <div class="flex flex-col justify-center place-content-center">
+          <div class="flex flex-col justify-center text-center place-content-center">
 
 
                <Link href="/animals/create">
@@ -23,6 +23,8 @@
                         />
 
                 </Link>
+
+                <SpacedRule/>
                 <InputText
 
                     class="block my-4"

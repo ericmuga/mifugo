@@ -21,5 +21,10 @@ class Animal extends Model
        return $this->belongsToMany(Dimension::class);
    }
 
+//    public function posts()
+//    {
+//        return $this->hasManyThrough(Post::class,Dimension::class);
+//    }
+
 
 }
