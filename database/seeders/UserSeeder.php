@@ -21,5 +21,13 @@ class UserSeeder extends Seeder
                      'password'=>bcrypt('qwert123.'),
                     'field_id'=>Field::first()->id
                    ]);
+
+                   DB::table('users')
+                   ->insert(['name'=>'Admin',
+                             'email'=>'admin@mifugoapp.com',
+                             'phone'=>'0720000000',
+                             'password'=>bcrypt('admin123.'),
+                            'field_id'=>Field::first()->id
+                           ]);
     }
 }
